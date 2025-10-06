@@ -1,0 +1,65 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 2em;
+  color: #555;
+  cursor: default;
+}
+
+.logo span {
+  color: #7d2ae8;
+}
+
+.navigation a {
+  font-size: 1.1em;
+  color: #c66060;
+  text-decoration: none;
+  margin-right: 40px;
+  font-weight: 500;
+  transition: .3s;
+}
+
+.navigation a:hover {
+  color: #7d2ae8;
+}
+
+.btn-talk {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 35px;
+  background: #7d2ae8;
+  border-radius: 10px;
+  border: 2px solid #7d2ae8;
+  font-weight: 500;
+  transition: .3s;
+}
+.btn-resume {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 25px;
+  background: linear-gradient(135deg, #4b50d5, #7c85d6);
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+  margin-left: 15px;
+}
+
+.btn-resume:hover {
+  background: linear-gradient(135deg, #7c85d6, #4b50d5);
+  transform: translateY(-3px);
+}
+
+.btn-talk:hover {
+  color: #7d2ae8;
+  background: transparent;
+}

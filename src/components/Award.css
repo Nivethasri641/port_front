@@ -1,0 +1,115 @@
+.award-section {
+  padding: 80px 30px;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent glass */
+  backdrop-filter: blur(0px); /* strong blur for glass effect */
+  -webkit-backdrop-filter: blur(15px); /* for Safari support */
+  border-radius: 30px; /* smooth edges for the section */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* subtle shadow for depth */
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+
+.award-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #7d2ae8; /* matches gradient theme */
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, rgba(125,42,232,0.85), rgba(224,110,227,0.85), rgba(249,161,188,0.85));
+  border-radius: 25px; /* curved edges */
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* deep shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px); /* slight glass effect */
+  color: #fff;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+}
+
+.achievement-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.multi-image {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.achievement-image-small {
+  width: 50%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px; /* small rounded edges for inner images */
+}
+
+.achievement-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.achievement-content h3 {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  color: #fff9c4; /* highlight title on gradient */
+}
+
+.achievement-content p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.achievement-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25); /* semi-transparent badge */
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+}
+
+/* Tablet: 2 cards per row */
+@media (max-width: 992px) {
+  .achievement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .achievement-image {
+    height: 160px;
+  }
+  .achievement-image-small {
+    height: 130px;
+  }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 600px) {
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+  .achievement-image {
+    height: 200px;
+  }
+  .achievement-image-small {
+    height: 150px;
+  }
+}

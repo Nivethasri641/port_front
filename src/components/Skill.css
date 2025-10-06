@@ -1,0 +1,76 @@
+.skill-section {
+  padding: 100px 50px;
+  color: #7919d2;
+  text-align: center;
+}
+
+.skill-section h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+/* Cards container */
+.skill-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual card */
+.skill-card {
+  background: linear-gradient(135deg, rgba(125,42,232,0.85), rgba(224,110,227,0.85), rgba(249,161,188,0.85));
+  color: #fff;
+  border-radius: 25px;
+  padding: 20px;
+  width: 160px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tool name always visible */
+.skill-name {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Skill description hidden by default */
+.skill-desc {
+  opacity: 0;
+  transform: translateY(10px);
+  font-size: 0.85em;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show description on hover */
+.skill-card:hover .skill-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image hover effect */
+.skill-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Card hover effect */
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
