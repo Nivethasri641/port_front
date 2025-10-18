@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #faf8ff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .about-card {
