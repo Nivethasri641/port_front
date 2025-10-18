@@ -5,7 +5,7 @@
   padding: 80px 30px;
   text-align: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15); /* glass effect */
+  background: rgba(255, 255, 255, 0.15); /* glass effect preserved */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 30px;
@@ -15,10 +15,10 @@
 }
 
 .award-section h2 {
-  font-size: 2.8em;
-  margin-bottom: 50px;
+  font-size: 3em;
+  margin-bottom: 60px;
   color: #7d2ae8;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -29,34 +29,44 @@
 .achievement-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 35px;
   max-width: 1400px;
   margin: 0 auto;
+  perspective: 1000px; /* adds 3D effect on hover */
 }
 
 /* =========================
    Achievement Card
 ========================= */
 .achievement-card {
-  background: linear-gradient(
-    135deg,
-    rgba(125, 42, 232, 0.85),
-    rgba(224, 110, 227, 0.85),
-    rgba(249, 161, 188, 0.85)
-  );
+  position: relative;
+  background: rgba(255, 255, 255, 0.15); /* glass */
   border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 0 15px rgba(125,42,232,0.3); /* depth + glow */
+  backdrop-filter: blur(10px);
   color: #fff;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   display: flex;
   flex-direction: column;
 }
 
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3, #f9a1bc);
+  opacity: 0.2;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+
 .achievement-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transform: rotateY(10deg) translateY(-15px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(125,42,232,0.4);
 }
 
 /* =========================
@@ -67,51 +77,56 @@
   height: 180px;
   object-fit: cover;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease;
+  z-index: 1;
+  transition: transform 0.5s ease;
 }
 
 .achievement-card:hover .achievement-image {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(1deg);
 }
 
 /* =========================
    Achievement Content
 ========================= */
 .achievement-content {
+  position: relative;
   padding: 25px 20px;
   text-align: left;
+  z-index: 1;
   flex-grow: 1;
 }
 
 .achievement-content h3 {
-  font-size: 1.6em;
+  font-size: 1.7em;
   margin-bottom: 10px;
+  font-weight: 700;
   color: #fff9c4;
-  font-weight: 600;
 }
 
 .achievement-content p {
   font-size: 1em;
   line-height: 1.6;
-  color: #f5f5f5;
+  color: #f0f0f0;
   margin-bottom: 15px;
 }
 
+/* Badge with ribbon style */
 .achievement-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, #e06ee3, #f9a1bc);
   color: #fff;
   font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 25px;
+  padding: 8px 18px;
+  border-radius: 50px;
   font-size: 0.9em;
   letter-spacing: 0.5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: all 0.3s ease;
 }
 
 .achievement-badge:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 /* =========================
