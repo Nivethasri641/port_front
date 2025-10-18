@@ -2,13 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import "./Award.css";
 
-// Achievement data
+// Import images properly
+import goldAward from "../assets/gold.jpeg";
+import zonalImg from "../assets/zone.jpg";
+import perform from "../assets/all.jpg";
+import mother from "../assets/mother.jpg";
+import kongu from "../assets/kongu.jpg";
+
 const achievements = [
-  { title: "Gold Award", image: "../assets/gold.jpeg", description: "Gold Award for innovative case study.", details: "Special thanks to HOD & team" },
-  { title: "Zonal Match", image: "../assets/zone.jpg", description: "Second Place in relay.", details: "Thanks to coach & teammates" },
-  { title: "All-Rounder", image: "../assets/all.jpg", description: "Best All-Rounder 2023–2025.", details: "Academics & sports excellence" },
-  { title: "Presentation Award", image: "../assets/mother.jpg", description: "Best Presentation Award.", details: "Presented Health Driven Productivity" },
-  { title: "First Prize", image: "../assets/kongu.jpg", description: "First Prize National Level.", details: "Teamwork with partner" },
+  { title: "Gold Award", image: goldAward, description: "Gold Award for innovative case study.", details: "Special thanks to HOD & team" },
+  { title: "Zonal Match", image: zonalImg, description: "Second Place in relay.", details: "Thanks to coach & teammates" },
+  { title: "All-Rounder", image: perform, description: "Best All-Rounder 2023–2025.", details: "Academics & sports excellence" },
+  { title: "Presentation Award", image: mother, description: "Best Presentation Award.", details: "Presented Health Driven Productivity" },
+  { title: "First Prize", image: kongu, description: "First Prize National Level.", details: "Teamwork with partner" },
 ];
 
 Modal.setAppElement('#root');
@@ -18,7 +24,6 @@ function Award() {
   const [activeAchievement, setActiveAchievement] = useState(null);
   const trackRef = useRef(null);
 
-  // Open modal
   const openModal = (achievement) => {
     setActiveAchievement(achievement);
     setModalIsOpen(true);
@@ -28,14 +33,14 @@ function Award() {
     setActiveAchievement(null);
   };
 
-  // Auto rotate carousel
+  // Rotate carousel dynamically
   useEffect(() => {
     let angle = 0;
     const total = achievements.length;
     const interval = setInterval(() => {
-      angle += 1; // degrees per frame
-      trackRef.current.style.transform = `rotateY(${angle}deg) translateZ(-500px)`;
-    }, 50); // speed (lower = faster)
+      angle += 360 / total; // rotates proportionally
+      trackRef.current.style.transform = `rotateY(${angle}deg) translateZ(-400px)`; // smaller Z for mobile-friendly view
+    }, 2000); 
     return () => clearInterval(interval);
   }, []);
 

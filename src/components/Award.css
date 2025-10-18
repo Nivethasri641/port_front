@@ -1,35 +1,27 @@
-/* =========================
-   Awards Section Styling
-========================= */
 .award-section {
-  padding: 80px 30px;
+  padding: 60px 20px;
   text-align: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border-radius: 30px;
   margin: 40px auto;
   max-width: 1200px;
 }
 
 .award-section h2 {
-  font-size: 3em;
-  margin-bottom: 60px;
+  font-size: 2.5em;
+  margin-bottom: 40px;
   color: #7d2ae8;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* =========================
-   3D Carousel
-========================= */
+/* 3D Carousel */
 .carousel {
-  perspective: 1500px;
+  perspective: 1200px;
   width: 100%;
   height: 350px;
-  margin: 0 auto;
   position: relative;
   overflow: visible;
 }
@@ -39,8 +31,8 @@
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transform: rotateY(0deg) translateZ(-500px);
-  transition: transform 0.5s linear;
+  transform: rotateY(0deg) translateZ(-400px);
+  transition: transform 1s linear;
 }
 
 .carousel-slide {
@@ -50,26 +42,24 @@
   transform-style: preserve-3d;
   transform-origin: center center;
   cursor: pointer;
-  width: 250px;
-  margin-left: -125px;
+  width: 220px;
+  margin-left: -110px;
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 /* Arrange slides in circle */
-.carousel-slide:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
-.carousel-slide:nth-child(2) { transform: rotateY(72deg) translateZ(500px); }
-.carousel-slide:nth-child(3) { transform: rotateY(144deg) translateZ(500px); }
-.carousel-slide:nth-child(4) { transform: rotateY(216deg) translateZ(500px); }
-.carousel-slide:nth-child(5) { transform: rotateY(288deg) translateZ(500px); }
+.carousel-slide:nth-child(1) { transform: rotateY(0deg) translateZ(400px); }
+.carousel-slide:nth-child(2) { transform: rotateY(72deg) translateZ(400px); }
+.carousel-slide:nth-child(3) { transform: rotateY(144deg) translateZ(400px); }
+.carousel-slide:nth-child(4) { transform: rotateY(216deg) translateZ(400px); }
+.carousel-slide:nth-child(5) { transform: rotateY(288deg) translateZ(400px); }
 
-/* =========================
-   Achievement Card
-========================= */
+/* Card Style */
 .achievement-card {
   background: rgba(255,255,255,0.15);
-  border-radius: 25px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 15px rgba(125,42,232,0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   backdrop-filter: blur(10px);
   color: #fff;
   width: 100%;
@@ -78,31 +68,29 @@
   flex-direction: column;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
+
 .achievement-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 35px 60px rgba(125,42,232,0.5), 0 0 30px rgba(125,42,232,0.4);
+  box-shadow: 0 25px 50px rgba(125,42,232,0.5);
 }
 
-/* Achievement Image */
 .achievement-image {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-/* Content */
 .achievement-content {
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
-.achievement-content h3 { font-size: 1.4em; margin-bottom: 8px; color: #fff9c4; }
-.achievement-content p { font-size: 0.95em; color: #f5f5f5; }
 
-/* =========================
-   Modal Styling
-========================= */
+.achievement-content h3 { font-size: 1.3em; margin-bottom: 6px; color: #fff9c4; }
+.achievement-content p { font-size: 0.9em; color: #f5f5f5; }
+
+/* Modal */
 .modal-overlay {
   background: rgba(0,0,0,0.75);
   display: flex;
@@ -110,28 +98,31 @@
   justify-content: center;
   z-index: 1000;
 }
+
 .modal-content {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(20px);
-  padding: 30px;
+  padding: 25px;
   border-radius: 25px;
   color: #fff;
-  max-width: 600px;
+  max-width: 500px;
   width: 90%;
   position: relative;
   text-align: center;
 }
+
 .modal-image {
   width: 100%;
-  height: 250px;
+  height: 220px;
   object-fit: cover;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
+
 .modal-close {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 10px;
+  right: 15px;
   font-size: 2em;
   background: none;
   border: none;
@@ -140,12 +131,12 @@
   font-weight: bold;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* Responsive */
 @media (max-width: 992px) {
-  .carousel-slide { width: 200px; margin-left: -100px; }
+  .carousel-slide { width: 180px; margin-left: -90px; }
+  .achievement-image { height: 140px; }
 }
 @media (max-width: 600px) {
   .carousel-slide { width: 150px; margin-left: -75px; }
+  .achievement-image { height: 120px; }
 }
