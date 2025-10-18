@@ -5,7 +5,7 @@
   padding: 80px 30px;
   text-align: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15); /* Glass effect */
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 30px;
@@ -17,83 +17,88 @@
   font-size: 3em;
   margin-bottom: 60px;
   color: #7d2ae8;
-  letter-spacing: 1.5px;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* =========================
-   Swiper Slide / Carousel
+   3D Carousel
 ========================= */
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  transition: transform 0.5s ease;
+.carousel {
+  perspective: 1500px;
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+  position: relative;
+  overflow: visible;
 }
 
-.swiper-slide-active .achievement-card {
-  transform: scale(1.1);
-  box-shadow: 0 35px 60px rgba(125,42,232,0.5);
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg) translateZ(-500px);
+  transition: transform 0.5s linear;
 }
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  cursor: pointer;
+  width: 250px;
+  margin-left: -125px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Arrange slides in circle */
+.carousel-slide:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
+.carousel-slide:nth-child(2) { transform: rotateY(72deg) translateZ(500px); }
+.carousel-slide:nth-child(3) { transform: rotateY(144deg) translateZ(500px); }
+.carousel-slide:nth-child(4) { transform: rotateY(216deg) translateZ(500px); }
+.carousel-slide:nth-child(5) { transform: rotateY(288deg) translateZ(500px); }
 
 /* =========================
    Achievement Card
 ========================= */
 .achievement-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 15px rgba(125,42,232,0.3);
   backdrop-filter: blur(10px);
   color: #fff;
-  cursor: pointer;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-
 .achievement-card:hover {
-  transform: translateY(-10px) scale(1.05);
+  transform: scale(1.05);
   box-shadow: 0 35px 60px rgba(125,42,232,0.5), 0 0 30px rgba(125,42,232,0.4);
 }
 
-/* =========================
-   Achievement Image
-========================= */
+/* Achievement Image */
 .achievement-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  transition: transform 0.5s ease;
 }
 
-.achievement-card:hover .achievement-image {
-  transform: scale(1.08);
-}
-
-/* =========================
-   Achievement Content
-========================= */
+/* Content */
 .achievement-content {
   padding: 20px;
+  text-align: center;
 }
-
-.achievement-content h3 {
-  font-size: 1.6em;
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: #fff9c4;
-}
-
-.achievement-content p {
-  font-size: 1em;
-  line-height: 1.6;
-  color: #f5f5f5;
-}
+.achievement-content h3 { font-size: 1.4em; margin-bottom: 8px; color: #fff9c4; }
+.achievement-content p { font-size: 0.95em; color: #f5f5f5; }
 
 /* =========================
    Modal Styling
@@ -105,7 +110,6 @@
   justify-content: center;
   z-index: 1000;
 }
-
 .modal-content {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(20px);
@@ -117,7 +121,6 @@
   position: relative;
   text-align: center;
 }
-
 .modal-image {
   width: 100%;
   height: 250px;
@@ -125,7 +128,6 @@
   border-radius: 20px;
   margin-bottom: 20px;
 }
-
 .modal-close {
   position: absolute;
   top: 15px;
@@ -139,14 +141,11 @@
 }
 
 /* =========================
-   Responsive Design
+   Responsive
 ========================= */
 @media (max-width: 992px) {
-  .achievement-card { width: 250px; }
-  .achievement-image { height: 160px; }
+  .carousel-slide { width: 200px; margin-left: -100px; }
 }
-
 @media (max-width: 600px) {
-  .achievement-card { width: 100%; }
-  .achievement-image { height: 200px; }
+  .carousel-slide { width: 150px; margin-left: -75px; }
 }

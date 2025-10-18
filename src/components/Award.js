@@ -1,11 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFlip, Pagination, Navigation, Autoplay } from "swiper";
-import "swiper/css";
-import "swiper/css/effect-flip";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import "./Award.css";
 
 // Achievement data
@@ -22,45 +16,47 @@ Modal.setAppElement('#root');
 function Award() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activeAchievement, setActiveAchievement] = useState(null);
+  const trackRef = useRef(null);
 
+  // Open modal
   const openModal = (achievement) => {
     setActiveAchievement(achievement);
     setModalIsOpen(true);
   };
-
   const closeModal = () => {
     setModalIsOpen(false);
     setActiveAchievement(null);
   };
 
+  // Auto rotate carousel
+  useEffect(() => {
+    let angle = 0;
+    const total = achievements.length;
+    const interval = setInterval(() => {
+      angle += 1; // degrees per frame
+      trackRef.current.style.transform = `rotateY(${angle}deg) translateZ(-500px)`;
+    }, 50); // speed (lower = faster)
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="award" className="award-section">
       <h2>Achievements & Awards</h2>
-
-      <Swiper
-        modules={[EffectFlip, Pagination, Navigation, Autoplay]}
-        effect="flip"
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={1}          // Single slide visible for better flip effect
-        loop={true}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        navigation={true}
-        style={{ paddingBottom: "50px" }}
-      >
-        {achievements.map((achieve, index) => (
-          <SwiperSlide key={index}>
-            <div className="achievement-card" onClick={() => openModal(achieve)}>
-              <img src={achieve.image} alt={achieve.title} className="achievement-image" />
-              <div className="achievement-content">
-                <h3>{achieve.title}</h3>
-                <p>{achieve.description}</p>
+      <div className="carousel">
+        <div className="carousel-track" ref={trackRef}>
+          {achievements.map((a, i) => (
+            <div className="carousel-slide" key={i} onClick={() => openModal(a)}>
+              <div className="achievement-card">
+                <img src={a.image} alt={a.title} className="achievement-image" />
+                <div className="achievement-content">
+                  <h3>{a.title}</h3>
+                  <p>{a.description}</p>
+                </div>
               </div>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+      </div>
 
       {activeAchievement && (
         <Modal
