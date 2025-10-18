@@ -23,7 +23,11 @@ function Award() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activeAchievement, setActiveAchievement] = useState(null);
   const carouselRef = useRef(null);
+
   const rotation = useRef(0);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const rotationSpeed = useRef(0.3);
 
   const openModal = (achievement) => {
     setActiveAchievement(achievement);
@@ -34,20 +38,43 @@ function Award() {
     setActiveAchievement(null);
   };
 
+  // Drag Handlers
+  const handlePointerDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.clientX || e.touches[0].clientX;
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isDragging.current) return;
+    const x = e.clientX || e.touches[0].clientX;
+    const delta = x - startX.current;
+    rotation.current += delta * 0.3; // drag sensitivity
+    startX.current = x;
+  };
+
+  const handlePointerUp = () => {
+    isDragging.current = false;
+  };
+
+  // Automatic rotation + dynamic positioning
   useEffect(() => {
     const total = achievements.length;
-    const radius = 400; // distance from center
+    const radius = 400;
     let animFrame;
 
     const rotateCarousel = () => {
-      rotation.current += 0.3; // rotation speed
+      if (!isDragging.current) {
+        rotation.current += rotationSpeed.current; // automatic rotation
+      }
+
       achievements.forEach((_, i) => {
         const angle = (360 / total) * i + rotation.current;
         const rad = (angle * Math.PI) / 180;
         const slide = carouselRef.current.children[i];
         slide.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-        slide.style.zIndex = Math.round(Math.cos(rad) * 100); // center slide appears on top
+        slide.style.zIndex = Math.round(Math.cos(rad) * 100);
       });
+
       animFrame = requestAnimationFrame(rotateCarousel);
     };
 
@@ -58,7 +85,17 @@ function Award() {
   return (
     <section id="award" className="award-section">
       <h2>Achievements & Awards</h2>
-      <div className="carousel">
+
+      <div
+        className="carousel"
+        onMouseDown={handlePointerDown}
+        onMouseMove={handlePointerMove}
+        onMouseUp={handlePointerUp}
+        onMouseLeave={handlePointerUp}
+        onTouchStart={handlePointerDown}
+        onTouchMove={handlePointerMove}
+        onTouchEnd={handlePointerUp}
+      >
         <div className="carousel-track" ref={carouselRef}>
           {achievements.map((a, i) => (
             <div className="carousel-slide" key={i} onClick={() => openModal(a)}>
