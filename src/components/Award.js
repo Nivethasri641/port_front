@@ -8,40 +8,36 @@ import allRounderImg from "../assets/all.jpg";
 import presentationImg from "../assets/mother.jpg";
 import firstPrizeImg from "../assets/kongu.jpg";
 
-// Achievement data
+// Achievement data (Concise)
 const achievements = [
   {
     title: "Gold Award – QCFI 2024",
     image: goldAwardImg,
-    description: `Proud to share that our team, Visionary Voices, won the GOLD AWARD for our case study "Poor Utilization of Library" at Sathyabama Institute of Science & Technology, Chennai.  
-Special thanks to our HOD, Poongodi Chinnasamy, and my dedicated team: Rama Jeevitha, Priyadharshini R, Krishna Veni, and Anusha Reddy.`,
+    description: "Our team won the Gold Award at QCFI 2024 for an innovative case study.",
     badge: "🥇 Gold Award",
   },
   {
     title: "Anna University Zonal Match – Relay",
     image: zonalImg,
-    description: `Thrilled to share that our relay team secured SECOND PLACE at the Anna University Zonal Match!  
-Heartfelt thanks to our coach, Gopi Sir, and my teammates for their unwavering support.`,
+    description: "Secured Second Place in the relay at Anna University Zonal Match.",
     badge: "🥈 Second Place",
   },
   {
     title: "Outstanding Performer (All-Rounder) 2023–2025",
     image: allRounderImg,
-    description: `Honored to receive the Best Performer (All-Rounder) award for 2023–2025, recognizing achievements in both academics and sports.`,
+    description: "Recognized as the Best All-Rounder for academics and sports.",
     badge: "🏅 Best All-Rounder",
   },
   {
     title: "Best Presentation Award – PAPERIX 2024",
     image: presentationImg,
-    description: `Received the Best Presentation Award for my paper "Health Driven Productivity" at PAPERIX 2024, St. Mother Theresa Engineering College.  
-Thanks to my mentor and partner, Rama Jeevitha, for the incredible support.`,
+    description: "Awarded Best Presentation for a research paper at PAPERIX 2024.",
     badge: "🏆 Best Presentation",
   },
   {
     title: "First Prize – CSI-KEC National Technical Symposium",
     image: firstPrizeImg,
-    description: `Our team clinched FIRST PLACE at the national-level technical symposium hosted by CSI-KEC, outperforming 61 teams.  
-Special appreciation to my partner, Rama Jeevitha, for her dedication and teamwork.`,
+    description: "Our team won First Prize at CSI-KEC National Technical Symposium.",
     badge: "🥇 First Prize",
   },
 ];
