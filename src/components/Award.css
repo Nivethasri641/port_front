@@ -1,6 +1,9 @@
 .award-section {
   padding: 60px 20px;
   text-align: center;
+  color: #fff;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(15px);
   border-radius: 30px;
   margin: 40px auto;
   max-width: 1200px;
