@@ -1,51 +1,75 @@
+/* =========================
+   Awards Section Styling
+========================= */
 .award-section {
   padding: 80px 30px;
   text-align: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15); /* semi-transparent glass */
-  backdrop-filter: blur(0px); /* strong blur for glass effect */
-  -webkit-backdrop-filter: blur(15px); /* for Safari support */
-  border-radius: 30px; /* smooth edges for the section */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* subtle shadow for depth */
+  background: rgba(255, 255, 255, 0.15); /* glass background preserved */
+  backdrop-filter: blur(15px); /* glass blur */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  border-radius: 30px; /* smooth rounded corners */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* subtle depth */
   margin: 40px auto;
   max-width: 1200px;
+  transition: all 0.3s ease-in-out;
 }
-
 
 .award-section h2 {
-  font-size: 2.5em;
-  margin-bottom: 40px;
-  color: #7d2ae8; /* matches gradient theme */
+  font-size: 2.8em;
+  margin-bottom: 50px;
+  color: #7d2ae8; /* thematic accent */
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 
+/* =========================
+   Achievement Grid
+========================= */
 .achievement-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 30px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
+/* =========================
+   Achievement Card
+========================= */
 .achievement-card {
-  background: linear-gradient(135deg, rgba(125,42,232,0.85), rgba(224,110,227,0.85), rgba(249,161,188,0.85));
-  border-radius: 25px; /* curved edges */
+  background: linear-gradient(
+    135deg,
+    rgba(125, 42, 232, 0.85),
+    rgba(224, 110, 227, 0.85),
+    rgba(249, 161, 188, 0.85)
+  ); /* dynamic gradient */
+  border-radius: 25px; /* elegant corners */
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* deep shadow for depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(8px); /* slight glass effect */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(8px); /* subtle glass effect inside card */
   color: #fff;
 }
 
 .achievement-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
 
+/* =========================
+   Achievement Images
+========================= */
 .achievement-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover .achievement-image {
+  transform: scale(1.05);
 }
 
 .multi-image {
@@ -58,36 +82,51 @@
   width: 50%;
   height: 150px;
   object-fit: cover;
-  border-radius: 15px; /* small rounded edges for inner images */
+  border-radius: 15px; /* soft rounded corners for inner images */
 }
 
+/* =========================
+   Achievement Content
+========================= */
 .achievement-content {
-  padding: 20px;
+  padding: 25px 20px;
   text-align: left;
 }
 
 .achievement-content h3 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin-bottom: 12px;
-  color: #fff9c4; /* highlight title on gradient */
+  color: #fff9c4; /* highlighted title */
+  font-weight: 600;
 }
 
 .achievement-content p {
   font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #f5f5f5;
 }
 
 .achievement-badge {
   display: inline-block;
   background: rgba(255, 255, 255, 0.25); /* semi-transparent badge */
   color: #fff;
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.85em;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
+.achievement-badge:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* =========================
+   Responsive Design
+========================= */
 /* Tablet: 2 cards per row */
 @media (max-width: 992px) {
   .achievement-grid {
