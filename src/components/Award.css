@@ -5,22 +5,22 @@
   padding: 80px 30px;
   text-align: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15); /* glass background preserved */
-  backdrop-filter: blur(15px); /* glass blur */
-  -webkit-backdrop-filter: blur(15px); /* Safari support */
-  border-radius: 30px; /* smooth rounded corners */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* subtle depth */
+  background: rgba(255, 255, 255, 0.15); /* glass effect */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   margin: 40px auto;
   max-width: 1200px;
-  transition: all 0.3s ease-in-out;
 }
 
 .award-section h2 {
   font-size: 2.8em;
   margin-bottom: 50px;
-  color: #7d2ae8; /* thematic accent */
+  color: #7d2ae8;
   letter-spacing: 1px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* =========================
@@ -43,13 +43,15 @@
     rgba(125, 42, 232, 0.85),
     rgba(224, 110, 227, 0.85),
     rgba(249, 161, 188, 0.85)
-  ); /* dynamic gradient */
-  border-radius: 25px; /* elegant corners */
+  );
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  backdrop-filter: blur(8px); /* subtle glass effect inside card */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(8px);
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .achievement-card:hover {
@@ -72,51 +74,39 @@
   transform: scale(1.05);
 }
 
-.multi-image {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
-
-.achievement-image-small {
-  width: 50%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 15px; /* soft rounded corners for inner images */
-}
-
 /* =========================
    Achievement Content
 ========================= */
 .achievement-content {
   padding: 25px 20px;
   text-align: left;
+  flex-grow: 1;
 }
 
 .achievement-content h3 {
   font-size: 1.6em;
-  margin-bottom: 12px;
-  color: #fff9c4; /* highlighted title */
+  margin-bottom: 10px;
+  color: #fff9c4;
   font-weight: 600;
 }
 
 .achievement-content p {
   font-size: 1em;
   line-height: 1.6;
-  margin-bottom: 15px;
   color: #f5f5f5;
+  margin-bottom: 15px;
 }
 
 .achievement-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.25); /* semi-transparent badge */
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 25px;
   font-size: 0.9em;
   letter-spacing: 0.5px;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .achievement-badge:hover {
@@ -127,7 +117,6 @@
 /* =========================
    Responsive Design
 ========================= */
-/* Tablet: 2 cards per row */
 @media (max-width: 992px) {
   .achievement-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -135,20 +124,13 @@
   .achievement-image {
     height: 160px;
   }
-  .achievement-image-small {
-    height: 130px;
-  }
 }
 
-/* Mobile: 1 card per row */
 @media (max-width: 600px) {
   .achievement-grid {
     grid-template-columns: 1fr;
   }
   .achievement-image {
     height: 200px;
-  }
-  .achievement-image-small {
-    height: 150px;
   }
 }
