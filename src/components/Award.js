@@ -1,45 +1,20 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
+import { EffectFlip, Pagination, Navigation, Autoplay } from "swiper";
 import "swiper/css";
-import "swiper/css/effect-coverflow";
+import "swiper/css/effect-flip";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Award.css";
 
 // Achievement data
 const achievements = [
-  {
-    title: "Gold Award – QCFI 2024",
-    image: "../assets/gold.jpeg",
-    description: "Gold Award for innovative case study.",
-    details: "Special thanks to my HOD and team members."
-  },
-  {
-    title: "Anna University Zonal Match – Relay",
-    image: "../assets/zone.jpg",
-    description: "Second Place in relay at Zonal Match.",
-    details: "Thanks to coach and teammates."
-  },
-  {
-    title: "Outstanding Performer (All-Rounder)",
-    image: "../assets/all.jpg",
-    description: "Best All-Rounder 2023–2025.",
-    details: "Awarded for excellence in academics & sports."
-  },
-  {
-    title: "Best Presentation – PAPERIX 2024",
-    image: "../assets/mother.jpg",
-    description: "Best Presentation Award.",
-    details: "Presented 'Health Driven Productivity'."
-  },
-  {
-    title: "First Prize – CSI-KEC National Technical Symposium",
-    image: "../assets/kongu.jpg",
-    description: "First Prize at National Level.",
-    details: "Teamwork with partner was key."
-  },
+  { title: "Gold Award", image: "../assets/gold.jpeg", description: "Gold Award for innovative case study.", details: "Special thanks to HOD & team" },
+  { title: "Zonal Match", image: "../assets/zone.jpg", description: "Second Place in relay.", details: "Thanks to coach & teammates" },
+  { title: "All-Rounder", image: "../assets/all.jpg", description: "Best All-Rounder 2023–2025.", details: "Academics & sports excellence" },
+  { title: "Presentation Award", image: "../assets/mother.jpg", description: "Best Presentation Award.", details: "Presented Health Driven Productivity" },
+  { title: "First Prize", image: "../assets/kongu.jpg", description: "First Prize National Level.", details: "Teamwork with partner" },
 ];
 
 Modal.setAppElement('#root');
@@ -63,26 +38,19 @@ function Award() {
       <h2>Achievements & Awards</h2>
 
       <Swiper
-        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-        effect="coverflow"
+        modules={[EffectFlip, Pagination, Navigation, Autoplay]}
+        effect="flip"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView="auto"
+        slidesPerView={1}          // Single slide visible for better flip effect
         loop={true}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 200,
-          modifier: 1,
-          slideShadows: true
-        }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation={true}
-        spaceBetween={30}
+        style={{ paddingBottom: "50px" }}
       >
         {achievements.map((achieve, index) => (
-          <SwiperSlide key={index} style={{ width: "300px" }}>
+          <SwiperSlide key={index}>
             <div className="achievement-card" onClick={() => openModal(achieve)}>
               <img src={achieve.image} alt={achieve.title} className="achievement-image" />
               <div className="achievement-content">
