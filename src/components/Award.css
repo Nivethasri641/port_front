@@ -1,11 +1,11 @@
 /* =========================
-   Section & Heading
+   Awards Section Styling
 ========================= */
 .award-section {
   padding: 80px 30px;
   text-align: center;
   color: #fff;
-  background: rgba(255, 255, 255, 0.15); /* glass effect */
+  background: rgba(255, 255, 255, 0.15); /* Glass effect */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 30px;
@@ -23,18 +23,28 @@
 }
 
 /* =========================
-   Carousel / Achievement Card
+   Swiper Slide / Carousel
 ========================= */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
 .achievement-card {
   position: relative;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 25px;
-  overflow: hidden;
+  border-radius: 25px;         /* Rounded corners */
+  overflow: hidden;            /* Important for image rounding */
   box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 15px rgba(125,42,232,0.3);
   backdrop-filter: blur(10px);
   color: #fff;
   cursor: pointer;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
 }
 
 .achievement-card:hover {
@@ -42,11 +52,15 @@
   box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(125,42,232,0.4);
 }
 
+/* =========================
+   Achievement Image
+========================= */
 .achievement-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
   transition: transform 0.5s ease;
 }
 
@@ -54,6 +68,9 @@
   transform: scale(1.08);
 }
 
+/* =========================
+   Achievement Content
+========================= */
 .achievement-content {
   padding: 20px;
 }
@@ -112,4 +129,40 @@
   color: #fff;
   cursor: pointer;
   font-weight: bold;
+}
+
+/* =========================
+   Swiper Effects (Coverflow)
+========================= */
+.swiper {
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  transform-style: preserve-3d;
+}
+
+.swiper-slide-active {
+  z-index: 10;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+@media (max-width: 992px) {
+  .achievement-card {
+    max-width: 250px;
+  }
+  .achievement-image {
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .achievement-card {
+    max-width: 100%;
+  }
+  .achievement-image {
+    height: 200px;
+  }
 }
