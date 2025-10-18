@@ -28,14 +28,22 @@
 .swiper-slide {
   display: flex;
   justify-content: center;
-  padding: 15px;
+  transition: transform 0.5s ease;
 }
 
+.swiper-slide-active .achievement-card {
+  transform: scale(1.1);
+  box-shadow: 0 35px 60px rgba(125,42,232,0.5);
+}
+
+/* =========================
+   Achievement Card
+========================= */
 .achievement-card {
   position: relative;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 25px;         /* Rounded corners */
-  overflow: hidden;            /* Important for image rounding */
+  border-radius: 25px;
+  overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25), 0 0 15px rgba(125,42,232,0.3);
   backdrop-filter: blur(10px);
   color: #fff;
@@ -44,12 +52,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
 }
 
 .achievement-card:hover {
   transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(125,42,232,0.4);
+  box-shadow: 0 35px 60px rgba(125,42,232,0.5), 0 0 30px rgba(125,42,232,0.4);
 }
 
 /* =========================
@@ -132,37 +139,14 @@
 }
 
 /* =========================
-   Swiper Effects (Coverflow)
-========================= */
-.swiper {
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  transform-style: preserve-3d;
-}
-
-.swiper-slide-active {
-  z-index: 10;
-}
-
-/* =========================
    Responsive Design
 ========================= */
 @media (max-width: 992px) {
-  .achievement-card {
-    max-width: 250px;
-  }
-  .achievement-image {
-    height: 160px;
-  }
+  .achievement-card { width: 250px; }
+  .achievement-image { height: 160px; }
 }
 
 @media (max-width: 600px) {
-  .achievement-card {
-    max-width: 100%;
-  }
-  .achievement-image {
-    height: 200px;
-  }
+  .achievement-card { width: 100%; }
+  .achievement-image { height: 200px; }
 }

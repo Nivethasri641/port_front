@@ -10,11 +10,36 @@ import "./Award.css";
 
 // Achievement data
 const achievements = [
-  { title: "Gold Award", image: "gold.jpeg", description: "Gold Award description", details: "Detailed info" },
-  { title: "Zonal Match", image: "zone.jpg", description: "Second Place", details: "Details" },
-  { title: "All-Rounder", image: "all.jpg", description: "Best All-Rounder", details: "Details" },
-  { title: "Presentation Award", image: "mother.jpg", description: "Best Presentation", details: "Details" },
-  { title: "First Prize", image: "kongu.jpg", description: "First Prize", details: "Details" },
+  {
+    title: "Gold Award – QCFI 2024",
+    image: "../assets/gold.jpeg",
+    description: "Gold Award for innovative case study.",
+    details: "Special thanks to my HOD and team members."
+  },
+  {
+    title: "Anna University Zonal Match – Relay",
+    image: "../assets/zone.jpg",
+    description: "Second Place in relay at Zonal Match.",
+    details: "Thanks to coach and teammates."
+  },
+  {
+    title: "Outstanding Performer (All-Rounder)",
+    image: "../assets/all.jpg",
+    description: "Best All-Rounder 2023–2025.",
+    details: "Awarded for excellence in academics & sports."
+  },
+  {
+    title: "Best Presentation – PAPERIX 2024",
+    image: "../assets/mother.jpg",
+    description: "Best Presentation Award.",
+    details: "Presented 'Health Driven Productivity'."
+  },
+  {
+    title: "First Prize – CSI-KEC National Technical Symposium",
+    image: "../assets/kongu.jpg",
+    description: "First Prize at National Level.",
+    details: "Teamwork with partner was key."
+  },
 ];
 
 Modal.setAppElement('#root');
@@ -42,26 +67,22 @@ function Award() {
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
+        slidesPerView="auto"
         loop={true}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
         coverflowEffect={{
-          rotate: 30,
+          rotate: 50,
           stretch: 0,
           depth: 200,
           modifier: 1,
-          slideShadows: true,
+          slideShadows: true
         }}
         pagination={{ clickable: true }}
         navigation={true}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          600: { slidesPerView: 2 },
-          992: { slidesPerView: 3 },
-        }}
+        spaceBetween={30}
       >
         {achievements.map((achieve, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} style={{ width: "300px" }}>
             <div className="achievement-card" onClick={() => openModal(achieve)}>
               <img src={achieve.image} alt={achieve.title} className="achievement-image" />
               <div className="achievement-content">
