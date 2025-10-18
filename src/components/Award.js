@@ -26,6 +26,7 @@ function Award() {
 
   const rotation = useRef(0);
   const isDragging = useRef(false);
+  const isHovered = useRef(false);
   const startX = useRef(0);
   const rotationSpeed = useRef(0.3);
 
@@ -38,7 +39,7 @@ function Award() {
     setActiveAchievement(null);
   };
 
-  // Drag Handlers
+  // Drag handlers
   const handlePointerDown = (e) => {
     isDragging.current = true;
     startX.current = e.clientX || e.touches[0].clientX;
@@ -56,15 +57,15 @@ function Award() {
     isDragging.current = false;
   };
 
-  // Automatic rotation + dynamic positioning
+  // Automatic rotation with hover/drag pause
   useEffect(() => {
     const total = achievements.length;
     const radius = 400;
     let animFrame;
 
     const rotateCarousel = () => {
-      if (!isDragging.current) {
-        rotation.current += rotationSpeed.current; // automatic rotation
+      if (!isDragging.current && !isHovered.current) {
+        rotation.current += rotationSpeed.current;
       }
 
       achievements.forEach((_, i) => {
@@ -91,10 +92,11 @@ function Award() {
         onMouseDown={handlePointerDown}
         onMouseMove={handlePointerMove}
         onMouseUp={handlePointerUp}
-        onMouseLeave={handlePointerUp}
         onTouchStart={handlePointerDown}
         onTouchMove={handlePointerMove}
         onTouchEnd={handlePointerUp}
+        onMouseEnter={() => (isHovered.current = true)}
+        onMouseLeave={() => (isHovered.current = false)}
       >
         <div className="carousel-track" ref={carouselRef}>
           {achievements.map((a, i) => (
