@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import "./Award.css";
 
-// Import images properly
+// Import images
 import goldAward from "../assets/gold.jpeg";
 import zonalImg from "../assets/zone.jpg";
 import perform from "../assets/all.jpg";
@@ -22,7 +22,8 @@ Modal.setAppElement('#root');
 function Award() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activeAchievement, setActiveAchievement] = useState(null);
-  const trackRef = useRef(null);
+  const carouselRef = useRef(null);
+  const rotation = useRef(0);
 
   const openModal = (achievement) => {
     setActiveAchievement(achievement);
@@ -33,22 +34,32 @@ function Award() {
     setActiveAchievement(null);
   };
 
-  // Rotate carousel dynamically
   useEffect(() => {
-    let angle = 0;
     const total = achievements.length;
-    const interval = setInterval(() => {
-      angle += 360 / total; // rotates proportionally
-      trackRef.current.style.transform = `rotateY(${angle}deg) translateZ(-400px)`; // smaller Z for mobile-friendly view
-    }, 2000); 
-    return () => clearInterval(interval);
+    const radius = 400; // distance from center
+    let animFrame;
+
+    const rotateCarousel = () => {
+      rotation.current += 0.3; // rotation speed
+      achievements.forEach((_, i) => {
+        const angle = (360 / total) * i + rotation.current;
+        const rad = (angle * Math.PI) / 180;
+        const slide = carouselRef.current.children[i];
+        slide.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+        slide.style.zIndex = Math.round(Math.cos(rad) * 100); // center slide appears on top
+      });
+      animFrame = requestAnimationFrame(rotateCarousel);
+    };
+
+    rotateCarousel();
+    return () => cancelAnimationFrame(animFrame);
   }, []);
 
   return (
     <section id="award" className="award-section">
       <h2>Achievements & Awards</h2>
       <div className="carousel">
-        <div className="carousel-track" ref={trackRef}>
+        <div className="carousel-track" ref={carouselRef}>
           {achievements.map((a, i) => (
             <div className="carousel-slide" key={i} onClick={() => openModal(a)}>
               <div className="achievement-card">
