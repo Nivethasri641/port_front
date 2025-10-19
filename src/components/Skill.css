@@ -1,76 +1,116 @@
 .skill-section {
-  padding: 100px 50px;
-  color: #7919d2;
+  padding: 80px 30px;
   text-align: center;
+  background: radial-gradient(circle at top left, #090014, #1a0028);
+  color: #fff;
 }
 
 .skill-section h2 {
   font-size: 2em;
+  font-weight: 700;
   margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Cards container */
+/* Container */
 .skill-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
 }
 
-/* Individual card */
+/* Neon Card Style */
 .skill-card {
-  background: linear-gradient(135deg, rgba(125,42,232,0.85), rgba(224,110,227,0.85), rgba(249,161,188,0.85));
-  color: #fff;
-  border-radius: 25px;
-  padding: 20px;
-  width: 160px;
-  height: 180px;
+  width: 180px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  position: relative;
+  align-items: center;
   overflow: hidden;
 }
 
-/* Tool name always visible */
-.skill-name {
-  font-weight: 600;
-  margin-top: 10px;
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: #ec4899;
+  box-shadow: 0 0 25px rgba(236, 72, 153, 0.5);
 }
 
-/* Skill description hidden by default */
-.skill-desc {
-  opacity: 0;
-  transform: translateY(10px);
-  font-size: 0.85em;
-  text-align: center;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Show description on hover */
-.skill-card:hover .skill-desc {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Image hover effect */
+/* Icons */
 .skill-card img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.6));
   transition: transform 0.3s ease;
 }
 
 .skill-card:hover img {
-  transform: scale(1.1);
+  transform: rotate(10deg) scale(1.1);
 }
 
-/* Card hover effect */
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+.skill-card h3 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+
+.skill-card p {
+  font-size: 0.9em;
+  color: #cfcfcf;
+  padding: 0 10px;
+}
+
+/* Animation for each card (staggered appearance) */
+.skill-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+.skill-card:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile view – one card visible at a time (carousel effect) */
+@media (max-width: 768px) {
+  .skill-cards {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 20px;
+  }
+
+  .skill-card {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    margin: 0 auto;
+  }
+
+  .skill-section h2 {
+    font-size: 1.6em;
+  }
 }
