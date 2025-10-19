@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import "./Award.css";
 
-// Import images
 import goldAward from "../assets/gold.jpeg";
 import zonalImg from "../assets/zone.jpg";
 import perform from "../assets/all.jpg";
@@ -17,18 +16,15 @@ const achievements = [
   { title: "First Prize", image: kongu, description: "First Prize National Level.", details: "Teamwork with partner" },
 ];
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 function Award() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activeAchievement, setActiveAchievement] = useState(null);
   const carouselRef = useRef(null);
 
-  const rotation = useRef(0);
-  const isDragging = useRef(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const isHovered = useRef(false);
-  const startX = useRef(0);
-  const rotationSpeed = useRef(0.3);
 
   const openModal = (achievement) => {
     setActiveAchievement(achievement);
@@ -39,48 +35,33 @@ function Award() {
     setActiveAchievement(null);
   };
 
-  // Drag handlers
-  const handlePointerDown = (e) => {
-    isDragging.current = true;
-    startX.current = e.clientX || e.touches[0].clientX;
-  };
-
-  const handlePointerMove = (e) => {
-    if (!isDragging.current) return;
-    const x = e.clientX || e.touches[0].clientX;
-    const delta = x - startX.current;
-    rotation.current += delta * 0.3; // drag sensitivity
-    startX.current = x;
-  };
-
-  const handlePointerUp = () => {
-    isDragging.current = false;
-  };
-
-  // Automatic rotation with hover/drag pause
   useEffect(() => {
     const total = achievements.length;
     const radius = 400;
-    let animFrame;
 
-    const rotateCarousel = () => {
-      if (!isDragging.current && !isHovered.current) {
-        rotation.current += rotationSpeed.current;
-      }
-
-      achievements.forEach((_, i) => {
-        const angle = (360 / total) * i + rotation.current;
+    const updateCarousel = () => {
+      const slides = carouselRef.current.children;
+      for (let i = 0; i < total; i++) {
+        const angle = (360 / total) * (i - currentIndex);
         const rad = (angle * Math.PI) / 180;
-        const slide = carouselRef.current.children[i];
-        slide.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-        slide.style.zIndex = Math.round(Math.cos(rad) * 100);
-      });
-
-      animFrame = requestAnimationFrame(rotateCarousel);
+        slides[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+        slides[i].style.opacity = Math.cos(rad) > 0 ? 1 : 0.3;
+        slides[i].style.zIndex = Math.round(Math.cos(rad) * 100);
+      }
     };
 
-    rotateCarousel();
-    return () => cancelAnimationFrame(animFrame);
+    updateCarousel();
+  }, [currentIndex]);
+
+  // Auto-rotation every 3s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isHovered.current) {
+        setCurrentIndex((prev) => (prev + 1) % achievements.length);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -89,12 +70,6 @@ function Award() {
 
       <div
         className="carousel"
-        onMouseDown={handlePointerDown}
-        onMouseMove={handlePointerMove}
-        onMouseUp={handlePointerUp}
-        onTouchStart={handlePointerDown}
-        onTouchMove={handlePointerMove}
-        onTouchEnd={handlePointerUp}
         onMouseEnter={() => (isHovered.current = true)}
         onMouseLeave={() => (isHovered.current = false)}
       >
@@ -121,7 +96,11 @@ function Award() {
           overlayClassName="modal-overlay"
         >
           <button className="modal-close" onClick={closeModal}>×</button>
-          <img src={activeAchievement.image} alt={activeAchievement.title} className="modal-image"/>
+          <img
+            src={activeAchievement.image}
+            alt={activeAchievement.title}
+            className="modal-image"
+          />
           <h3>{activeAchievement.title}</h3>
           <p>{activeAchievement.details}</p>
         </Modal>
