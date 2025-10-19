@@ -25,6 +25,7 @@ header {
 
 .logo span {
   background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
