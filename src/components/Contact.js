@@ -15,14 +15,22 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     setStatus("");
+
     try {
+      // Send POST request to Railway backend
       const response = await axios.post(
         "https://backendport-production-a8b1.up.railway.app/api/contact",
         form
       );
-      console.log("Response:", response.data);
-      setForm({ name: "", email: "", message: "" });
-      setStatus("Message sent successfully!");
+
+      if (response.data?.message) {
+        // Show success message
+        setStatus(response.data.message);
+        // Clear the form
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Message sent, but no confirmation received.");
+      }
     } catch (err) {
       console.error("Error sending message:", err.response ? err.response.data : err);
       setStatus("Failed to send message. Please try again.");
@@ -62,7 +70,16 @@ const Contact = () => {
         <button type="submit" disabled={loading}>
           {loading ? "Sending..." : "Send Message"}
         </button>
-        {status && <p className="status-message">{status}</p>}
+
+        {/* Status message */}
+        {status && (
+          <p
+            className="status-message"
+            style={{ color: status.includes("Failed") ? "red" : "green", marginTop: "10px" }}
+          >
+            {status}
+          </p>
+        )}
       </form>
     </section>
   );
