@@ -14,7 +14,7 @@ const Contact = () => {
     try {
       // Use your Railway backend URL here
       await axios.post(
-        "https://backendport-production-a8b1.up.railway.app/api/contact",
+        "https://backendport-production-a8b1.up.railway.app",
         form
       );
       alert("Message sent successfully!");
