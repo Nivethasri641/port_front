@@ -4,6 +4,8 @@ import "./Contact.css";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(""); // Success/failure message
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,17 +13,21 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus("");
     try {
-      // Use your Railway backend URL here
-      await axios.post(
+      const response = await axios.post(
         "https://backendport-production-a8b1.up.railway.app/api/contact",
         form
       );
-      alert("Message sent successfully!");
+      console.log("Response:", response.data);
       setForm({ name: "", email: "", message: "" });
+      setStatus("Message sent successfully!");
     } catch (err) {
-      alert("Failed to send message");
-      console.error(err);
+      console.error("Error sending message:", err.response ? err.response.data : err);
+      setStatus("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,7 +59,10 @@ const Contact = () => {
           onChange={handleChange}
           required
         ></textarea>
-        <button type="submit">Send Message</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+        {status && <p className="status-message">{status}</p>}
       </form>
     </section>
   );
