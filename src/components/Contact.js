@@ -12,11 +12,16 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/contact", form);
+      // Use your Railway backend URL here
+      await axios.post(
+        "https://backendport-production-a8b1.up.railway.app/api/contact",
+        form
+      );
       alert("Message sent successfully!");
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
       alert("Failed to send message");
+      console.error(err);
     }
   };
 
