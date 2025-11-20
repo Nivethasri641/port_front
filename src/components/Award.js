@@ -8,52 +8,6 @@ import perform from "../assets/all.jpg";
 import mother from "../assets/mother.jpg";
 import kongu from "../assets/kongu.jpg";
 
-// ---------------- STACK COMPONENT (inline) ---------------- //
-function Stack({
-  cardsData = [],
-  cardDimensions = { width: 200, height: 200 },
-  randomRotation = false,
-  sensitivity = 180,
-  sendToBackOnClick = false,
-}) {
-  const [cards, setCards] = useState(cardsData);
-
-  const handleCardClick = (index) => {
-    if (sendToBackOnClick) {
-      const newCards = [...cards];
-      const [clickedCard] = newCards.splice(index, 1);
-      newCards.push(clickedCard);
-      setCards(newCards);
-    }
-  };
-
-  return (
-    <div className="stack-container" style={{ width: cardDimensions.width * 2 }}>
-      {cards.map((card, i) => {
-        const rotation = randomRotation
-          ? Math.random() * sensitivity - sensitivity / 2
-          : i * 5 - (cards.length * 5) / 2;
-
-        return (
-          <div
-            key={card.id}
-            className="stack-card"
-            onClick={() => handleCardClick(i)}
-            style={{
-              width: `${cardDimensions.width}px`,
-              height: `${cardDimensions.height}px`,
-              transform: `rotate(${rotation}deg) translateY(${i * 4}px)`,
-              zIndex: cards.length - i,
-              backgroundImage: `url(${card.img})`,
-            }}
-          ></div>
-        );
-      })}
-    </div>
-  );
-}
-// ---------------------------------------------------------- //
-
 const achievements = [
   { title: "Gold Award", image: goldAward, description: "Gold Award for innovative case study.", details: "Special thanks to HOD & team" },
   { title: "Zonal Match", image: zonalImg, description: "Second Place in relay.", details: "Thanks to coach & teammates" },
@@ -67,6 +21,7 @@ Modal.setAppElement("#root");
 function Award() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activeAchievement, setActiveAchievement] = useState(null);
+
   const carouselRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const isHovered = useRef(false);
@@ -75,6 +30,7 @@ function Award() {
     setActiveAchievement(achievement);
     setModalIsOpen(true);
   };
+
   const closeModal = () => {
     setModalIsOpen(false);
     setActiveAchievement(null);
@@ -83,67 +39,52 @@ function Award() {
   useEffect(() => {
     const total = achievements.length;
     const radius = 400;
-    const updateCarousel = () => {
-      const slides = carouselRef.current.children;
-      for (let i = 0; i < total; i++) {
-        const angle = (360 / total) * (i - currentIndex);
-        const rad = (angle * Math.PI) / 180;
-        slides[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
-        slides[i].style.opacity = Math.cos(rad) > 0 ? 1 : 0.3;
-        slides[i].style.zIndex = Math.round(Math.cos(rad) * 100);
-      }
-    };
-    updateCarousel();
+
+    const slides = carouselRef.current.children;
+
+    for (let i = 0; i < total; i++) {
+      const angle = (360 / total) * (i - currentIndex);
+      const rad = (angle * Math.PI) / 180;
+
+      slides[i].style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+      slides[i].style.opacity = Math.cos(rad) > 0 ? 1 : 0.25;
+      slides[i].style.zIndex = Math.round(Math.cos(rad) * 100);
+    }
   }, [currentIndex]);
 
+  // Auto-rotate
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isHovered.current) {
         setCurrentIndex((prev) => (prev + 1) % achievements.length);
       }
-    }, 3000);
+    }, 2500);
+
     return () => clearInterval(interval);
   }, []);
-
-  const stackImages = achievements.map((a, i) => ({
-    id: i + 1,
-    img: a.image,
-  }));
 
   return (
     <section id="award" className="award-section">
       <h2>Achievements & Awards</h2>
 
-      {/* 3D Carousel */}
       <div
         className="carousel"
         onMouseEnter={() => (isHovered.current = true)}
         onMouseLeave={() => (isHovered.current = false)}
       >
         <div className="carousel-track" ref={carouselRef}>
-          {achievements.map((a, i) => (
-            <div className="carousel-slide" key={i} onClick={() => openModal(a)}>
+          {achievements.map((item, i) => (
+            <div className="carousel-slide" key={i} onClick={() => openModal(item)}>
               <div className="achievement-card">
-                <img src={a.image} alt={a.title} className="achievement-image" />
+                <img src={item.image} alt={item.title} className="achievement-image" />
                 <div className="achievement-content">
-                  <h3>{a.title}</h3>
-                  <p>{a.description}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Stack Animation Below */}
-      <div style={{ marginTop: "80px" }}>
-        <Stack
-          randomRotation={true}
-          sensitivity={160}
-          sendToBackOnClick={true}
-          cardDimensions={{ width: 220, height: 220 }}
-          cardsData={stackImages}
-        />
       </div>
 
       {activeAchievement && (
@@ -153,12 +94,16 @@ function Award() {
           className="modal-content"
           overlayClassName="modal-overlay"
         >
-          <button className="modal-close" onClick={closeModal}>×</button>
+          <button className="modal-close" onClick={closeModal}>
+            ×
+          </button>
+
           <img
             src={activeAchievement.image}
             alt={activeAchievement.title}
             className="modal-image"
           />
+
           <h3>{activeAchievement.title}</h3>
           <p>{activeAchievement.details}</p>
         </Modal>
