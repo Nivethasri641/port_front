@@ -2,7 +2,7 @@
 .contact-section {
   padding: 80px 30px;
   text-align: center;
-  background:linear-gradient(90deg, #D4B3DA, #b77fcf);
+  background: transparent;
   color: #fff;
 }
 /*radial-gradient(circle at top left, #12001c, #1f022d);*/
