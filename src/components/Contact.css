@@ -1,68 +1,64 @@
-/* Floating Social Bar */
 .social-floating {
   position: fixed;
   top: 50%;
-  right: 20px;
+  right: 20px; /* distance from the right edge */
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 15px;
   z-index: 1000;
 }
 
-/* Icon Style */
 .social-floating a {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #D4B3DA, #A884C1);
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
-  font-size: 1.4em;
+  color: #fff;
+  font-size: 1.5em;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-/* Hover Effect */
 .social-floating a:hover {
-  transform: translateY(-6px) scale(1.08);
-  background: #ffffff;
-  color: #6A4C8C;
-  border: 2px solid #6A4C8C;
+  transform: translateY(-5px) scale(1.1);
+  background-color: rgba(255,255,255,0.2);
+  color: #7d2ae8;
+  border: 2px solid #7d2ae8;
 }
 
-/* Tablet View */
+/* Tablets */
 @media (max-width: 992px) {
   .social-floating {
     right: 10px;
     gap: 12px;
   }
   .social-floating a {
-    width: 46px;
-    height: 46px;
+    width: 45px;
+    height: 45px;
     font-size: 1.3em;
   }
 }
 
-/* Mobile View */
+/* Mobile */
 @media (max-width: 600px) {
   .social-floating {
     top: auto;
-    bottom: 18px;
+    bottom: 20px;
     right: 50%;
     transform: translateX(50%);
     flex-direction: row;
-    gap: 14px;
-    background: rgba(212, 179, 218, 0.35); /* subtle violet glass effect */
-    padding: 8px 14px;
-    border-radius: 30px;
-    backdrop-filter: blur(8px);
+    gap: 15px;
+    background: rgba(0,0,0,0.2); /* optional semi-transparent background for visibility */
+    padding: 8px 12px;
+    border-radius: 25px;
   }
   .social-floating a {
     width: 40px;
     height: 40px;
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 }
