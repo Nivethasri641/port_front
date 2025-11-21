@@ -1,6 +1,6 @@
 /* Contact Section */
 .contact-section {
-  padding: 80px 30px;
+  padding: 100px 50px;
   text-align: center;
   background: transparent;
   color: #fff;
@@ -15,7 +15,7 @@
   letter-spacing: 2px;
   background: linear-gradient(90deg, #D4B3DA, #b77fcf);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: linear-gradient(90deg, #D4B3DA, #b77fcf);
 }
 
 .contact-section p {
