@@ -15,7 +15,7 @@ function Header() {
   return (
     <header>
       <h2 className="logo">
-        <span>N</span>ive
+        <span>NK</span>Portfolio
       </h2>
 
       {/* Hamburger Icon for Mobile */}
