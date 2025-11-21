@@ -1,64 +1,106 @@
-.social-floating {
-  position: fixed;
-  top: 50%;
-  right: 20px; /* distance from the right edge */
-  transform: translateY(-50%);
+/* Contact Section */
+.contact-section {
+  padding: 80px 30px;
+  text-align: center;
+  background: radial-gradient(circle at top left, #090014, #1a0028);
+  color: #fff;
+}
+
+.contact-section h2 {
+  font-size: 2.3em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-section p {
+  font-size: 1.1em;
+  color: #cfcfcf;
+  margin-bottom: 40px;
+}
+
+/* Form Container */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
+  gap: 20px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
 }
 
-.social-floating a {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Inputs + Textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1em;
+  outline: none;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-.social-floating a:hover {
-  transform: translateY(-5px) scale(1.1);
-  background-color: rgba(255,255,255,0.2);
-  color: #7d2ae8;
-  border: 2px solid #7d2ae8;
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #cfcfcf;
 }
 
-/* Tablets */
-@media (max-width: 992px) {
-  .social-floating {
-    right: 10px;
-    gap: 12px;
-  }
-  .social-floating a {
-    width: 45px;
-    height: 45px;
-    font-size: 1.3em;
-  }
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
 }
 
-/* Mobile */
+/* Textarea height */
+.contact-form textarea {
+  height: 130px;
+  resize: none;
+}
+
+/* Submit Button */
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+/* Status Message */
+.status-message {
+  font-size: 1.1em;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
-  .social-floating {
-    top: auto;
-    bottom: 20px;
-    right: 50%;
-    transform: translateX(50%);
-    flex-direction: row;
-    gap: 15px;
-    background: rgba(0,0,0,0.2); /* optional semi-transparent background for visibility */
-    padding: 8px 12px;
-    border-radius: 25px;
+  .contact-form {
+    padding: 25px;
   }
-  .social-floating a {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2em;
+
+  .contact-section h2 {
+    font-size: 1.8em;
   }
 }
