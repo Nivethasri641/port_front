@@ -1,0 +1,108 @@
+/* Contact Section */
+.contact-section {
+  padding: 100px 50px;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+}
+/*radial-gradient(circle at top left, #12001c, #1f022d);*/
+
+.contact-section h2 {
+  font-size: 2.3em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #D4B3DA, #b77fcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: linear-gradient(90deg, #D4B3DA, #b77fcf);
+}
+
+.contact-section p {
+  font-size: 1.1em;
+  color: #e2d4e8;
+  margin-bottom: 40px;
+}
+
+/* Form Container */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  background: rgba(143, 16, 235, 0.9);
+  border-radius: 20px;
+  border: 2px solid rgba(212, 179, 218, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(212, 179, 218, 0.2);
+}
+
+/* Inputs + Textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 179, 218, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #d7c7de;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #D4B3DA;
+  box-shadow: 0 0 12px rgba(212,179,218,0.5);
+}
+
+/* Textarea height */
+.contact-form textarea {
+  height: 130px;
+  resize: none;
+}
+
+/* Submit Button */
+.contact-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #D4B3DA, #b77fcf);
+  color: #1a0028;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(212,179,218,0.55);
+}
+
+/* Status Message */
+.status-message {
+  font-size: 1.1em;
+  margin-top: 5px;
+  font-weight: 600;
+  color: #D4B3DA;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 25px;
+  }
+
+  .contact-section h2 {
+    font-size: 1.8em;
+  }
+}

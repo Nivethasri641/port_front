@@ -1,0 +1,64 @@
+.social-floating {
+  position: fixed;
+  top: 50%;
+  right: 20px; /* distance from the right edge */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.social-floating a {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5em;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.social-floating a:hover {
+  transform: translateY(-5px) scale(1.1);
+  background-color: rgba(255,255,255,0.2);
+  color: #7d2ae8;
+  border: 2px solid #7d2ae8;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .social-floating {
+    right: 10px;
+    gap: 12px;
+  }
+  .social-floating a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3em;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .social-floating {
+    top: auto;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    flex-direction: row;
+    gap: 15px;
+    background: rgba(0,0,0,0.2); /* optional semi-transparent background for visibility */
+    padding: 8px 12px;
+    border-radius: 25px;
+  }
+  .social-floating a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+  }
+}

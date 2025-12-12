@@ -1,0 +1,177 @@
+/* ====== Header Base ====== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: linear-gradient(135deg, #ffffff, #f8f4ff);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease-in-out;
+}
+
+/* ====== Logo ====== */
+.logo {
+  font-size: 1.9em;
+  color: #1d1d1d;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.logo span {
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ====== Navigation ====== */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1.05em;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  transition: width 0.3s ease;
+}
+
+.navigation a:hover {
+  color: #7d2ae8;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+/* ====== Buttons ====== */
+.btn-resume,
+.btn-talk {
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-resume {
+  color: #fff;
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  border: none;
+}
+
+.btn-resume:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(125, 42, 232, 0.3);
+}
+
+.btn-talk {
+  color: #7d2ae8;
+  border: 2px solid #7d2ae8;
+  background: transparent;
+}
+
+.btn-talk:hover {
+  background: #7d2ae8;
+  color: #fff;
+}
+
+/* ====== Hamburger Menu ====== */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  width: 28px;
+  height: 22px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-icon .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #7d2ae8;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Transform the icon when active */
+.menu-icon.active .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.menu-icon.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 900px) {
+  header {
+    padding: 18px 30px;
+    flex-wrap: wrap;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 0;
+    border-top: 2px solid #7d2ae8;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .navigation.open {
+    display: flex;
+    animation: fadeSlideDown 0.4s ease;
+  }
+
+  .btn-resume,
+  .btn-talk {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* ====== Animation ====== */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
