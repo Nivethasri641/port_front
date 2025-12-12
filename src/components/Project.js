@@ -69,7 +69,7 @@ const adobeProjects = [
 const fullstackProjects = [
   {
     title: "Personal Portfolio",
-    description: "Fullstack personal portfolio built using React, MongoDB Atlas, Node.js, Express, deployed on Vercel & Railway.",
+    description: "Fullstack personal portfolio.",
     tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Railway", "Replit"],
     link: "https://port-front-kappa.vercel.app/",
     image: portimg,
