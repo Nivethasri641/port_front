@@ -15,6 +15,8 @@ import digitalImg from "../assets/digital.png";
 import infoImg from "../assets/info.png";
 import d3Img from "../assets/3d.png";
 import brandbookImg from "../assets/brandbook.png";
+// Fullstack Images
+import portimg from "../assets/port.png";
 
 import posterPDF from "../assets/poster.pdf";
 import portfolioPDF from "../assets/portfolio.pdf";
@@ -61,6 +63,17 @@ const adobeProjects = [
   { title: "Info Design", image: infoImg, pdf: infoPDF, description: "Infographic design created in Illustrator." },
   { title: "3D Design", image: d3Img, pdf: d3PDF, description: "3D rendering project made using Adobe Dimension." },
   { title: "Brandbook", image: brandbookImg, pdf: brandbookPDF, description: "Brandbook created with Illustrator & InDesign." },
+];
+
+// ---------------- Fullstack (MERN) Projects ----------------
+const fullstackProjects = [
+  {
+    title: "Personal Portfolio",
+    description: "Fullstack personal portfolio built using React, MongoDB Atlas, Node.js, Express, deployed on Vercel & Railway.",
+    tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Railway", "Replit"],
+    link: "https://port-front-kappa.vercel.app/",
+    image: portimg,
+  },
 ];
 
 function Project() {
@@ -123,6 +136,38 @@ function Project() {
           </motion.div>
         ))}
       </div>
+
+      {/* ---------------- FULLSTACK SECTION ---------------- */}
+      <h3 className="subtittle">Fullstack Projects (MERN Stack)</h3>
+
+      <div className="project-container">
+        {fullstackProjects.map((proj, index) => (
+          <motion.div
+            key={index}
+            className="project-card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <img src={proj.image} alt={proj.title} className="project-image" />
+            <h3 className="project-name">{proj.title}</h3>
+            <p className="project-description">{proj.description}</p>
+
+            <div className="tech-list">
+              {proj.tech.map((t, i) => (
+                <span key={i} className="tech-badge">{t}</span>
+              ))}
+            </div>
+
+            <a href={proj.link} target="_blank" rel="noopener noreferrer" className="project-btn">
+              View Live
+            </a>
+          </motion.div>
+        ))}
+      </div>
+
     </section>
   );
 }
