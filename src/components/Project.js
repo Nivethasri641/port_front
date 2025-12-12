@@ -15,6 +15,8 @@ import digitalImg from "../assets/digital.png";
 import infoImg from "../assets/info.png";
 import d3Img from "../assets/3d.png";
 import brandbookImg from "../assets/brandbook.png";
+// Fullstack Images
+import portimg from "../assets/port.png";
 
 import posterPDF from "../assets/poster.pdf";
 import portfolioPDF from "../assets/portfolio.pdf";
@@ -69,8 +71,8 @@ const fullstackProjects = [
     title: "Personal Portfolio",
     description: "Fullstack personal portfolio built using React, MongoDB Atlas, Node.js, Express, deployed on Vercel & Railway.",
     tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Railway", "Replit"],
-    link: "https://your-portfolio-live-link.com", // replace with live URL
-    image: "https://via.placeholder.com/600x400.png?text=Personal+Portfolio",
+    link: "https://port-front-kappa.vercel.app/",
+    image: portimg,
   },
 ];
 
