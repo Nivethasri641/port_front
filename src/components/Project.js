@@ -7,7 +7,7 @@ import foodimg from "../assets/food.png";
 import health from "../assets/health.png";
 import toy from "../assets/toy.png";
 
-// Adobe Images (Placeholder) + PDFs
+// Adobe Images
 import posterImg from "../assets/poster.png";
 import portfolioImg from "../assets/portfolio.png";
 import poster2Img from "../assets/poster2.png";
@@ -15,9 +15,12 @@ import digitalImg from "../assets/digital.png";
 import infoImg from "../assets/info.png";
 import d3Img from "../assets/3d.png";
 import brandbookImg from "../assets/brandbook.png";
+
 // Fullstack Images
 import portimg from "../assets/port.png";
+import crud from "../assets/crud.png";
 
+// PDFs
 import posterPDF from "../assets/poster.pdf";
 import portfolioPDF from "../assets/portfolio.pdf";
 import poster2PDF from "../assets/poster2.pdf";
@@ -25,6 +28,7 @@ import digitalPDF from "../assets/digital illustration.pdf";
 import infoPDF from "../assets/info.pdf";
 import d3PDF from "../assets/3d.pdf";
 import brandbookPDF from "../assets/brand.pdf";
+
 
 // ---------------- Figma Projects ----------------
 const figmaProjects = [
@@ -54,6 +58,7 @@ const figmaProjects = [
   },
 ];
 
+
 // ---------------- Adobe Projects ----------------
 const adobeProjects = [
   { title: "Poster Design", image: posterImg, pdf: posterPDF, description: "Creative poster using Adobe Illustrator." },
@@ -65,16 +70,25 @@ const adobeProjects = [
   { title: "Brandbook", image: brandbookImg, pdf: brandbookPDF, description: "Brandbook created with Illustrator & InDesign." },
 ];
 
+
 // ---------------- Fullstack (MERN) Projects ----------------
 const fullstackProjects = [
   {
+    title: "CRUD Application",
+    description: "Fullstack CRUD application .",
+    tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
+    link: "https://crud-five-zeta.vercel.app/",
+    image: crud,
+  },
+  {
     title: "Personal Portfolio",
-    description: "Fullstack personal portfolio built using React, MongoDB Atlas, Node.js, Express, deployed on Vercel & Railway.",
+    description: "Fullstack personal portfolio using MERN Stack, Vercel, Railway, MongoDB Atlas.",
     tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Railway", "Replit"],
     link: "https://port-front-kappa.vercel.app/",
     image: portimg,
   },
 ];
+
 
 function Project() {
   return (
@@ -112,6 +126,7 @@ function Project() {
         ))}
       </div>
 
+
       {/* ---------------- ADOBE SECTION ---------------- */}
       <h3 className="subtittle">Adobe Illustrator / Creative Projects</h3>
 
@@ -137,6 +152,7 @@ function Project() {
         ))}
       </div>
 
+
       {/* ---------------- FULLSTACK SECTION ---------------- */}
       <h3 className="subtittle">Fullstack Projects (MERN Stack)</h3>
 
@@ -151,7 +167,7 @@ function Project() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
           >
-            <img src={proj.image} alt={proj.title} className="project-image" />
+            <img src={proj.image} alt={proj.title} className="project-image fullstack-img" />
             <h3 className="project-name">{proj.title}</h3>
             <p className="project-description">{proj.description}</p>
 
