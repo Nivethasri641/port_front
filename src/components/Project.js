@@ -18,6 +18,7 @@ import brandbookImg from "../assets/brandbook.png";
 
 // Fullstack Images
 import portimg from "../assets/port.png";
+import crud from "../assets/crud.png";
 
 // PDFs
 import posterPDF from "../assets/poster.pdf";
@@ -72,6 +73,13 @@ const adobeProjects = [
 
 // ---------------- Fullstack (MERN) Projects ----------------
 const fullstackProjects = [
+  {
+    title: "CRUD Application",
+    description: "Fullstack CRUD application .",
+    tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
+    link: "https://crud-five-zeta.vercel.app/",
+    image: crud,
+  },
   {
     title: "Personal Portfolio",
     description: "Fullstack personal portfolio using MERN Stack, Vercel, Railway, MongoDB Atlas.",
