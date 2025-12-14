@@ -1,179 +1,250 @@
+/* ================= AWARD SECTION ================= */
+
 .award-section {
-  padding: 80px 30px;
+  padding: 120px 20px 100px;
   text-align: center;
-  color: #3B2B44;
-  background: linear-gradient(135deg, #F6ECF8, #D4B3DA);
-  border-radius: 28px;
-  margin: 50px auto;
-  max-width: 1200px;
-  box-shadow: 0 10px 35px rgba(128, 88, 150, 0.18);
-  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, #f5effa, #dcc9ec);
+  color: #3b2b44;
 }
 
-/* Title */
+/* ================= SECTION TITLE ================= */
+
 .award-section h2 {
-  font-size: 2.2em;
-  margin-bottom: 45px;
+  font-size: 2.4rem;
+  margin-bottom: 60px;
   font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #6A4C8C, #9A7BB0);
+  background: linear-gradient(90deg, #6a4c8c, #a37bcf);
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-/* 3D Carousel */
+/* ================= 3D CAROUSEL ================= */
+
 .carousel {
-  perspective: 1500px;
+  perspective: 1600px;
   width: 100%;
-  height: 360px;
+  height: 380px;
   position: relative;
   overflow: visible;
 }
 
 .carousel-track {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ================= SLIDES ================= */
 
 .carousel-slide {
   position: absolute;
   top: 0;
   left: 50%;
+  width: 240px;
+  margin-left: -120px;
   transform-style: preserve-3d;
-  transform-origin: center;
   cursor: pointer;
-  width: 230px;
-  margin-left: -115px;
-  transition: transform 0.6s ease, opacity 0.5s ease, z-index 0.5s;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* Achievement Card */
+/* ================= ACHIEVEMENT CARD ================= */
+
 .achievement-card {
-  background: rgba(255, 255, 255, 0.32);
-  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.38);
+  border-radius: 26px;
   overflow: hidden;
-  box-shadow: 0 8px 28px rgba(128, 88, 150, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(15px);
-  color: #3B2B44;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: 0.45s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 30px rgba(90, 50, 120, 0.2);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
 
-.achievement-card:hover {
-  transform: scale(1.06);
-  box-shadow: 0 12px 35px rgba(128, 88, 150, 0.28);
-  border-color: rgba(128, 88, 150, 0.6);
+.carousel-slide:hover .achievement-card {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 18px 42px rgba(90, 50, 120, 0.35);
 }
 
-/* Image */
+/* ================= IMAGE ================= */
+
 .achievement-image {
   width: 100%;
-  height: 160px;
+  height: 165px;
   object-fit: cover;
-  border-radius: 22px 22px 0 0;
+  border-radius: 26px 26px 0 0;
 }
 
-/* Text */
+/* ================= CONTENT ================= */
+
 .achievement-content {
-  padding: 18px;
-  text-align: center;
+  padding: 18px 16px 22px;
 }
 
 .achievement-content h3 {
-  font-size: 1.25em;
-  color: #6A4C8C;
-  margin-bottom: 8px;
+  font-size: 1.25rem;
   font-weight: 600;
+  color: #6a4c8c;
+  margin-bottom: 6px;
 }
 
 .achievement-content p {
-  font-size: 0.92em;
-  color: #4B2F57;
+  font-size: 0.95rem;
+  color: #4b2f57;
+  line-height: 1.5;
 }
 
-/* Modal Overlay */
+/* ================= MODAL OVERLAY ================= */
+
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.65);
+  inset: 0;
+  background: rgba(15, 10, 20, 0.65);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
+  z-index: 3000;
+  animation: fadeIn 0.4s ease;
 }
 
-/* Modal Box */
+/* ================= MODAL BOX ================= */
+
 .modal-content {
-  background: rgba(255, 255, 255, 0.32);
-  backdrop-filter: blur(25px);
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
-  border-radius: 22px;
-  padding: 30px;
-  color: #3B2B44;
-  max-width: 500px;
-  width: 90%;
-  position: relative;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(28px);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-radius: 26px;
+  padding: 32px;
+  max-width: 520px;
+  width: 92%;
   text-align: center;
-  box-shadow: 0 10px 35px rgba(128, 88, 150, 0.28);
+  color: #3b2b44;
+  box-shadow: 0 20px 45px rgba(90, 50, 120, 0.35);
+  animation: scaleUp 0.45s ease;
 }
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #6a4c8c;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #4b2f57;
+}
+
+/* ================= MODAL IMAGE ================= */
 
 .modal-image {
   width: 100%;
-  height: 230px;
+  height: 240px;
   object-fit: cover;
   border-radius: 18px;
-  margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(90, 50, 120, 0.25);
 }
 
-/* Close Button */
+/* ================= CLOSE BUTTON ================= */
+
 .modal-close {
   position: absolute;
-  top: 12px;
+  top: 14px;
   right: 18px;
-  font-size: 1.6em;
+  font-size: 1.8rem;
   background: none;
   border: none;
-  color: #6A4C8C;
+  color: #6a4c8c;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .modal-close:hover {
-  transform: scale(1.15);
-  color: #9A7BB0;
+  transform: rotate(90deg) scale(1.1);
+  color: #a37bcf;
 }
 
-/* Responsive */
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 992px) {
+  .carousel-slide {
+    width: 200px;
+    margin-left: -100px;
+  }
+
+  .achievement-image {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .award-section h2 {
+    font-size: 2rem;
+  }
+
+  .carousel {
+    height: 330px;
+  }
+
   .carousel-slide {
     width: 180px;
     margin-left: -90px;
   }
-  .achievement-image {
-    height: 140px;
-  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+  .award-section {
+    padding: 90px 15px 70px;
+  }
+
+  .award-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .carousel {
+    height: 280px;
+  }
+
   .carousel-slide {
     width: 150px;
     margin-left: -75px;
   }
+
   .achievement-image {
     height: 120px;
   }
-  .award-section h2 {
-    font-size: 1.8em;
+
+  .modal-content {
+    padding: 22px;
+  }
+
+  .modal-image {
+    height: 180px;
   }
 }
