@@ -19,7 +19,7 @@ const Contact = () => {
     try {
       // Send POST request to Railway backend
       const response = await axios.post(
-        "https://backendport-production-a8b1.up.railway.app/api/contact",
+        "https://contact-backend-pwzb.onrender.com/api/contact",
         form
       );
 
