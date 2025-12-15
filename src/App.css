@@ -7,39 +7,47 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* 🔥 prevents horizontal scroll */
+}
+
 body {
-  padding: 100px 50px;
+  padding-top: 110px; /* header safe space */
+  padding-left: 50px;
+  padding-right: 50px;
   color: #fff;
   transition: all 0.3s ease;
   touch-action: pan-x pan-y;
 }
 
-/* Tablets */
+/* Tablet */
 @media (max-width: 992px) {
   body {
-    padding: 70px 30px;
-    background-size: cover;
+    padding-top: 90px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   body {
-    padding: 50px 15px;
-    background-size: cover;
-    background-position: top center;
+    padding-top: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-align: center;
   }
 
   h3 {
-    font-size: 1rem; /* prevents auto-zoom on mobile */
+    font-size: 1rem;
   }
 
   p {
-    font-size: 0.95rem; /* prevents auto-zoom */
+    font-size: 0.95rem;
   }
 }
