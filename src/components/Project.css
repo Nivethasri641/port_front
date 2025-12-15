@@ -4,6 +4,7 @@
   background: #0b0014;
   text-align: center;
   color: #fff;
+  overflow-x: hidden; /* 🔥 prevents side scroll */
 }
 
 /* Section Title */
@@ -28,9 +29,9 @@
 /* Grid Layout */
 .project-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  width: 90%;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -42,12 +43,15 @@
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.07);
-  transition: 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover {
-  box-shadow: 0 0 25px rgba(162, 96, 255, 0.5);
-  transform: translateY(-5px) scale(1.03);
+/* Hover only for non-touch devices */
+@media (hover: hover) {
+  .project-card:hover {
+    box-shadow: 0 0 25px rgba(162, 96, 255, 0.5);
+    transform: translateY(-5px) scale(1.03);
+  }
 }
 
 /* Project Image */
@@ -57,11 +61,10 @@
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 15px;
-  display: block;
   background-color: #1a1a1a;
 }
 
-/* FULLSTACK FIX → Image should not crop */
+/* FULLSTACK FIX */
 .fullstack-img {
   object-fit: contain !important;
   background: #000;
@@ -82,7 +85,7 @@
   font-size: 0.95rem;
   color: #ccc;
   margin-bottom: 15px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* Tech List */
@@ -106,7 +109,7 @@
 /* Button */
 .project-btn {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 8px;
   padding: 10px 20px;
   background: linear-gradient(90deg, #e76aff, #a064ff);
   color: white;
@@ -116,32 +119,68 @@
   transition: 0.3s ease;
 }
 
-.project-btn:hover {
-  opacity: 0.85;
-  transform: scale(1.03);
-}
+/* ================= RESPONSIVE ================= */
 
-/* Responsive */
+/* Tablet */
 @media (max-width: 768px) {
+  .project-section {
+    padding: 60px 20px;
+  }
+
   .project-title {
     font-size: 2.2rem;
   }
+
   .subtittle {
     font-size: 1.5rem;
   }
-  .project-image {
-    height: 150px;
+
+  .project-image,
+  .fullstack-img {
+    height: 160px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
+  .project-section {
+    padding: 50px 15px;
+  }
+
   .project-title {
     font-size: 1.8rem;
+    margin-bottom: 30px;
   }
+
   .subtittle {
     font-size: 1.3rem;
+    margin-bottom: 20px;
   }
-  .project-image {
-    height: 120px;
+
+  .project-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 18px;
+  }
+
+  .project-image,
+  .fullstack-img {
+    height: 130px;
+  }
+
+  .project-name {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .project-btn {
+    width: 100%;
+    padding: 12px;
   }
 }
