@@ -19,6 +19,7 @@ import brandbookImg from "../assets/brandbook.png";
 // Fullstack Images
 import portimg from "../assets/port.png";
 import crud from "../assets/crud.png";
+import expense from "../assets/expense.png";
 
 // PDFs
 import posterPDF from "../assets/poster.pdf";
@@ -82,10 +83,17 @@ const fullstackProjects = [
   },
   {
     title: "Personal Portfolio",
-    description: "Fullstack personal portfolio using MERN Stack, Vercel, Railway, MongoDB Atlas.",
-    tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Railway", "Replit"],
+    description: "Fullstack personal portfolio using MERN Stack, Vercel, Render, MongoDB Atlas.",
+    tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
     link: "https://port-front-kappa.vercel.app/",
     image: portimg,
+  },
+  {
+    title: "Expense Tracker",
+    description: "Fullstack expense tracker application using MERN stack.",
+    tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
+    link: "https://port-front-kappa.vercel.app/",
+    image: expense,
   },
 ];
 
