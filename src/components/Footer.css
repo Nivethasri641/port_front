@@ -1,0 +1,49 @@
+/* ================= FOOTER ================= */
+.site-footer {
+  background: linear-gradient(135deg, #cb46e5, #D4B3DA);
+  padding: 25px 15px;
+  text-align: center;
+  color: #151315;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-text span {
+  font-weight: 700;
+  color: #150818;
+}
+
+.footer-design {
+  margin: 6px 0;
+  color: #210a28;
+}
+
+.terms-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #6a2d78;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.terms-link:hover {
+  color: #a064ff;
+  text-decoration: underline;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.8rem;
+  }
+
+  .footer-design {
+    margin-top: 4px;
+  }
+}
