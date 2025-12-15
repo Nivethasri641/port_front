@@ -7,6 +7,7 @@ import Skill from "./components/Skill";
 import Project from "./components/Project";   
 import Contact from "./components/Contact";
 import Social from "./components/Social";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Project />  
       <Contact />
       <Social />
+      <Footer />
     </>
   );
 }
