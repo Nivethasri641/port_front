@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import About from "./components/About";
 import Award from "./components/Award";
 import Skill from "./components/Skill";
-import Project from "./components/Project";   // ✅ Add this line
+import Project from "./components/Project";   
 import Contact from "./components/Contact";
 import Social from "./components/Social";
 
