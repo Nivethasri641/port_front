@@ -2,6 +2,7 @@
   padding: 100px 30px;
   background: linear-gradient(135deg, #F6ECF8, #D4B3DA);
   text-align: center;
+  overflow-x: hidden;
 }
 
 /* Titles */
@@ -16,7 +17,7 @@
 }
 
 .sub-title {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 /* Grid Layout */
@@ -30,20 +31,23 @@
 
 /* Skill Item */
 .skill-item {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px);
   border-radius: 18px;
   padding: 22px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 10px 26px rgba(90, 50, 120, 0.22);
+  box-shadow: 0 8px 22px rgba(90, 50, 120, 0.22);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 36px rgba(90, 50, 120, 0.32);
+/* Hover only for desktop */
+@media (hover: hover) {
+  .skill-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(90, 50, 120, 0.32);
+  }
 }
 
 /* Icons */
@@ -52,7 +56,7 @@
   height: 48px;
   object-fit: contain;
   margin-bottom: 10px;
-  filter: drop-shadow(0 4px 10px rgba(106, 76, 140, 0.3));
+  filter: drop-shadow(0 4px 8px rgba(106, 76, 140, 0.25));
 }
 
 /* Text */
@@ -62,25 +66,59 @@
   color: #5a3b72;
 }
 
+/* ================= RESPONSIVE ================= */
+
 /* Tablet */
 @media (max-width: 768px) {
+  .skill-section {
+    padding: 80px 20px;
+  }
+
   .skill-section h2 {
     font-size: 1.9em;
   }
 
   .skill-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .skill-item {
+    padding: 20px 14px;
   }
 }
 
 /* Mobile */
 @media (max-width: 480px) {
+  .skill-section {
+    padding: 60px 15px;
+  }
+
+  .skill-section h2 {
+    font-size: 1.6em;
+    margin-bottom: 30px;
+  }
+
+  .sub-title {
+    margin-top: 45px;
+  }
+
   .skill-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .skill-item {
+    padding: 18px 12px;
+    border-radius: 16px;
   }
 
   .skill-item img {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill-item span {
+    font-size: 0.85em;
   }
 }
