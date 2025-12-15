@@ -92,7 +92,7 @@ const fullstackProjects = [
     title: "Expense Tracker",
     description: "Fullstack expense tracker application using MERN stack.",
     tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
-    link: "https://port-front-kappa.vercel.app/",
+    link: "https://expensetracker-nine-ruby.vercel.app/",
     image: expense,
   },
 ];
