@@ -15,6 +15,7 @@ import digitalImg from "../assets/digital.png";
 import infoImg from "../assets/info.png";
 import d3Img from "../assets/3d.png";
 import brandbookImg from "../assets/brandbook.png";
+import anim from "../assets/ani.png";
 
 // Fullstack Images
 import portimg from "../assets/port.png";
@@ -33,6 +34,14 @@ import brandbookPDF from "../assets/brand.pdf";
 
 // ---------------- Figma Projects ----------------
 const figmaProjects = [
+  {
+    title: "Food Micro‑Interaction Animation",
+    description:
+      "Designed a food micro‑interaction in Figma using Smart Animate.The animation simulates a food item lifting from the plate and returning smoothly, using detailed control of scale, movement, and shadow dynamics.",
+    tech: ["Frame setup", "Food edits", "Shadow logic", "Final animation"],
+    link: "https://www.figma.com/proto/qbxzTqCKyC6RFGKs8SoNby/Untitled?node-id=0-1&t=GsgU6jixWxa0Kjw0-1",
+    image: anim,
+  },
   {
     title: "Food Web App Design",
     description:
