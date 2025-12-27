@@ -1,71 +1,92 @@
-/* ====== Header Base ====== */
+/* ================= ROOT THEME VARIABLES ================= */
+:root {
+  --primary: #7d2ae8;
+  --secondary: #e06ee3;
+  --bg: #15062f;
+  --bg-soft: #c3a6f4;
+  --text: #1d1d1d;
+  --nav-bg: #d3c3f7;
+  --shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+  --bg: #0b0f14;
+  --bg-soft: #111827;
+  --text: #f1f5f9;
+  --nav-bg: #0b0f14;
+  --shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* ================= HEADER ================= */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 25px 80px;
+  padding: 22px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
-  background: linear-gradient(135deg, #ffffff, #f8f4ff);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  transition: 0.3s ease-in-out;
+  z-index: 1200;
+  background: linear-gradient(135deg, var(--bg), var(--bg-soft));
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
-/* ====== Logo ====== */
+/* ================= LOGO ================= */
 .logo {
-  font-size: 1.9em;
-  color: #1d1d1d;
+  font-size: 1.9rem;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
+  color: var(--text);
 }
 
 .logo span {
-  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ====== Navigation ====== */
+/* ================= NAVIGATION ================= */
 .navigation {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 34px;
 }
 
 .navigation a {
   position: relative;
-  font-size: 1.05em;
-  color: #333;
+  font-size: 1.05rem;
+  color: var(--text);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
+/* underline animation */
 .navigation a::after {
   content: "";
   position: absolute;
-  bottom: -5px;
   left: 0;
+  bottom: -6px;
   width: 0%;
   height: 2px;
-  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   transition: width 0.3s ease;
 }
 
 .navigation a:hover {
-  color: #7d2ae8;
+  color: var(--primary);
 }
 
 .navigation a:hover::after {
   width: 100%;
 }
 
-/* ====== Buttons ====== */
+/* ================= BUTTONS ================= */
 .btn-resume,
 .btn-talk {
   padding: 8px 22px;
@@ -76,28 +97,27 @@ header {
 }
 
 .btn-resume {
-  color: #fff;
-  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
-  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #d9cbcb;
 }
 
 .btn-resume:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(125, 42, 232, 0.3);
+  box-shadow: 0 6px 16px rgba(125, 42, 232, 0.35);
 }
 
 .btn-talk {
-  color: #7d2ae8;
-  border: 2px solid #7d2ae8;
+  border: 2px solid var(--primary);
+  color: var(--primary);
   background: transparent;
 }
 
 .btn-talk:hover {
-  background: #7d2ae8;
+  background: var(--primary);
   color: #fff;
 }
 
-/* ====== Hamburger Menu ====== */
+/* ================= HAMBURGER ================= */
 .menu-icon {
   display: none;
   flex-direction: column;
@@ -105,59 +125,32 @@ header {
   height: 22px;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 1300;
 }
 
-/* Bars */
 .menu-icon .bar {
   height: 3px;
   width: 100%;
-  background: linear-gradient(90deg, #7d2ae8, #e06ee3);
   border-radius: 6px;
-  transition:
-    transform 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-    opacity 0.25s ease,
-    width 0.25s ease;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: 0.35s ease;
 }
 
-/* ===== Active Animation ===== */
+/* Active animation */
 .menu-icon.active .bar:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
-  width: 100%;
 }
-
 .menu-icon.active .bar:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
 }
-
 .menu-icon.active .bar:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
-  width: 100%;
 }
 
-/* ===== Touch Feedback ===== */
-.menu-icon:active {
-  transform: scale(0.95);
-}
-
-
-/* Transform the icon when active */
-.menu-icon.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-}
-.menu-icon.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.menu-icon.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-
-/* ====== Responsive ====== */
+/* ================= MOBILE NAV ================= */
 @media (max-width: 900px) {
   header {
     padding: 18px 30px;
-    flex-wrap: wrap;
   }
 
   .menu-icon {
@@ -169,30 +162,29 @@ header {
     top: 75px;
     right: 0;
     width: 100%;
-    background: #ffffff;
+    background: var(--nav-bg);
     flex-direction: column;
-    align-items: center;
     gap: 20px;
     padding: 25px 0;
-    border-top: 2px solid #7d2ae8;
     display: none;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow);
+    border-top: 2px solid var(--primary);
   }
 
   .navigation.open {
     display: flex;
-    animation: fadeSlideDown 0.4s ease;
+    animation: fadeDown 0.4s ease;
   }
 
   .btn-resume,
   .btn-talk {
-    width: 80%;
+    width: 85%;
     text-align: center;
   }
 }
 
-/* ====== Animation ====== */
-@keyframes fadeSlideDown {
+/* ================= ANIMATION ================= */
+@keyframes fadeDown {
   from {
     opacity: 0;
     transform: translateY(-15px);

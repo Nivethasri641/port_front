@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./Project.css";
+import "./Styles/Project.css";
 
 // Figma Images
 import foodimg from "../assets/food.png";

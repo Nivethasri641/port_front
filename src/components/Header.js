@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Header.css";
+import "./Styles/Header.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,6 +27,7 @@ function Header() {
 
       {/* Navigation Links */}
       <nav className={`navigation ${menuOpen ? "open" : ""}`}>
+        <a href="#home" onClick={handleCloseMenu}>Home</a>
         <a href="#about" onClick={handleCloseMenu}>About</a>
         <a href="#award" onClick={handleCloseMenu}>Awards & Certifications</a>
         <a href="#skill" onClick={handleCloseMenu}>Tools & Skills</a>

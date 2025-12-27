@@ -1,0 +1,85 @@
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(125,42,232,0.12), transparent 40%),
+    radial-gradient(circle at 90% 60%, rgba(46,229,157,0.12), transparent 45%),
+    var(--bg);
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--text);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Container */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Main text */
+.footer-text {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.footer-text span {
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sub text */
+.footer-design {
+  margin: 6px 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Terms / Links */
+.terms-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.terms-link:hover {
+  color: var(--secondary);
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+/* ================= DARK MODE ================= */
+
+.dark .site-footer {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(125,42,232,0.18), transparent 40%),
+    radial-gradient(circle at 90% 60%, rgba(46,229,157,0.18), transparent 45%),
+    var(--bg);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.dark .footer-design {
+  color: #9ca3af;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 0.8rem;
+    padding: 22px 12px;
+  }
+
+  .footer-design {
+    margin-top: 4px;
+  }
+}
