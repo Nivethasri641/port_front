@@ -1,7 +1,7 @@
 /* ================= PROJECT SECTION ================= */
 
 .project-section {
-  padding: 100px 20px;
+  padding: 120px 20px;
   background:
     radial-gradient(circle at 10% 20%, rgba(185, 137, 248, 0.14), transparent 40%),
     radial-gradient(circle at 90% 60%, rgba(208, 110, 253, 0.14), transparent 45%),
@@ -159,7 +159,7 @@
 
 @media (max-width: 768px) {
   .project-section {
-    padding: 70px 20px;
+    padding: 50px 20px;
   }
 
   .project-title {
@@ -174,7 +174,7 @@
 
 @media (max-width: 480px) {
   .project-section {
-    padding: 60px 16px;
+    padding: 50px 16px;
   }
 
   .project-title {

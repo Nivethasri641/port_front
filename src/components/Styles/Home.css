@@ -50,6 +50,7 @@
 
 .home-text h1 span {
   background: linear-gradient(135deg, var(--secondary), var(--primary));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -181,6 +182,8 @@
   }
 
   .home-image img {
+    position: fixed;
+    top:auto;
     width: 280px;
   }
 }
