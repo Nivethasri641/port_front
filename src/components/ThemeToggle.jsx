@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
 function ThemeToggle() {
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [dark, setDark] = useState(() => {
+  const savedTheme = localStorage.getItem("theme");
+  return savedTheme ? savedTheme === "dark" : true; 
+});
+
 
   const [isMobile, setIsMobile] = useState(
     window.innerWidth <= 900
