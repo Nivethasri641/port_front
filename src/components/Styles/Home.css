@@ -116,32 +116,6 @@
   color: #fff;
 }
 
-/* ===== SOCIAL ICONS ===== */
-.social-icons {
-  margin-top: 35px;
-  display: flex;
-  gap: 16px;
-}
-
-.social-icons a {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
-  color: #fff;
-  transform: translateY(-4px);
-}
-
 /* ===== IMAGE ===== */
 .home-image {
   display: flex;
@@ -165,12 +139,24 @@
 
   .home-container {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     text-align: center;
-    gap: 50px;
+    gap: 40px;
   }
 
-  .home-text h1 {
-    font-size: 2.6rem;
+  /* Image comes first */
+  .home-image {
+    order: 1;
+  }
+
+  /* Text comes second */
+  .home-text {
+    order: 2;
+  }
+
+  .home-image img {
+    width: 260px;
+    margin: 0 auto;
   }
 
   .home-buttons {
@@ -180,18 +166,7 @@
   .social-icons {
     justify-content: center;
   }
-
-  .home-image img {
-    position: fixed;
-    top:auto;
-    width: 280px;
-  }
 }
-.home-buttons {
-  display: flex;
-  gap: 20px;
-}
-
 .btn-primary {
   padding: 12px 26px;
   border-radius: 8px;
