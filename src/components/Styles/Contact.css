@@ -3,7 +3,9 @@
 .contact-section {
   padding: 120px 20px 100px;
   text-align: center;
-  background: linear-gradient(135deg, #f5effa, #d9c4e9);
+  background: radial-gradient(circle at 10% 20%, rgba(125,42,232,0.15), transparent 40%),
+    radial-gradient(circle at 90% 60%, rgba(46,229,157,0.15), transparent 45%),
+    var(--bg);
   color: #3b2b44;
 }
 
@@ -16,6 +18,7 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   background: linear-gradient(90deg, #6a4c8c, #a37bcf);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -1,16 +1,10 @@
 import React from "react";
-import "./Footer.css";
+import "./Styles/Footer.css";
 
 const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="footer-content">
-
-        <h3 className="footer-brand">NIVETHA SRI</h3>
-        <p className="footer-tagline">
-          Pre-Final Year CSE Student | UI/UX Designer | Full Stack Developer
-        </p><br></br>
-
         {/* Divider */}
         <div className="footer-divider"></div>
 

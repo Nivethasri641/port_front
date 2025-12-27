@@ -1,0 +1,199 @@
+/* ================= AWARD SECTION ================= */
+
+.award-section {
+  padding: 110px 6% 90px;
+  background: radial-gradient(circle at 10% 20%, rgba(125,42,232,0.15), transparent 40%),
+    radial-gradient(circle at 90% 60%, rgba(46,229,157,0.15), transparent 45%),
+    var(--bg);
+  text-align: center;
+}
+.award-section span{
+  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Title */
+.award-section h2 {
+  font-size: 2.6rem;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.award-section h2 span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= GRID ================= */
+
+.award-grid {
+  display: grid;
+  -webkit-text-stroke-color: #7d2ae8;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ================= CARD ================= */
+
+.award-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.award-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.award-card h3 {
+  margin-top: 18px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* ================= IMAGE BOX ================= */
+
+.award-image-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+/* Image */
+.award-image-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.award-card:hover img {
+  transform: scale(1.1);
+}
+
+/* ================= OVERLAY (Touch / Hover) ================= */
+
+.award-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.25)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: #fff;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.award-card:hover .award-overlay,
+.award-card:active .award-overlay {
+  opacity: 1;
+}
+
+.award-overlay p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.award-overlay span {
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+
+/* ================= MODAL BACKGROUND ================= */
+
+.award-overlay-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+/* ================= MODAL ================= */
+
+.award-modal {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 22px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: scaleIn 0.4s ease;
+}
+
+.award-modal img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.award-modal h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.award-modal p {
+  color: var(--subtext);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.close-btn:hover {
+  color: var(--primary);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+  .award-section h2 {
+    font-size: 2rem;
+  }
+
+  .award-image-box img {
+    height: 180px;
+  }
+}
