@@ -1,4 +1,5 @@
-/* ===== ROOT THEME ===== */
+EEEEEYD67E                                 QWb
+  /* ===== ROOT THEME ===== */
 :root {
   --primary: #7d2ae8;
   --secondary: #2ee59d;
@@ -26,9 +27,36 @@
     radial-gradient(circle at 90% 60%, rgba(46,229,157,0.15), transparent 45%),
     var(--bg);
 }
+/* ===== HOME SPRINKLE EFFECT ===== */
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2.5px 1.5px at 20% 30%, rgba(238, 238, 66, 0.35), transparent),
+    radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1.2px 1.2px at 40% 80%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1.5px 1.5px at 90% 60%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 1px at 10% 90%, rgba(13, 60, 107, 0.25), transparent);
+  background-size: 260px 260px;
+  animation: sprinkleMove 12s linear infinite;
+  pointer-events: none;
+  z-index: 0;scroll-snap-stop: CV;
+}
+@keyframes sprinkleMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
 
 /* ===== LAYOUT ===== */
 .home-container {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
@@ -196,3 +224,34 @@
   background: #e06ee3;
   color: #fff;
 }
+/* ===== FLOAT + GLOW EFFECT ===== */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,0.3),
+      0 0 25px rgba(91, 22, 180, 0.35);
+  }
+  50% {
+    transform: translateY(-12px);
+    box-shadow: 
+      0 40px 80px rgba(0,0,0,0.35),
+      0 0 45px rgba(224, 110, 227, 0.55);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,0.3),
+      0 0 25px rgba(91, 22, 180, 0.35);
+  }
+}
+
+.home-image img {
+  width: 360px;
+  border-radius: 24px;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  
+  animation: float 4s ease-in-out infinite;
+}
+

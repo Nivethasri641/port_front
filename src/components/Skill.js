@@ -66,7 +66,7 @@ function Skill() {
   return (
     <section id="skill" className="skills-section">
       <h2 className="skills-title">
-        My <span>Skills</span>
+        Tools & <span>Skills</span>
       </h2>
       <p className="skills-subtitle">
         Technologies and abilities I work with
@@ -75,7 +75,7 @@ function Skill() {
       <div className="skills-wrapper">
         {/* Technical */}
         <div className="skills-card">
-          <h3>Technical Skills</h3>
+          <h3>Tools & TechnicalSkills</h3>
           <div className="skills-grid">
             {technicalSkills.map((skill, i) => (
               <div className="skill-item" key={i}>
