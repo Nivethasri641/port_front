@@ -3,7 +3,8 @@
 .contact-section {
   padding: 120px 20px 100px;
   text-align: center;
-  background: radial-gradient(circle at 10% 20%, rgba(125,42,232,0.15), transparent 40%),
+  background:
+    radial-gradient(circle at 10% 20%, rgba(125,42,232,0.15), transparent 40%),
     radial-gradient(circle at 90% 60%, rgba(46,229,157,0.15), transparent 45%),
     var(--bg);
   color: #3b2b44;
@@ -29,7 +30,7 @@
   margin-bottom: 45px;
 }
 
-/* ================= FORM CONTAINER ================= */
+/* ================= FORM ================= */
 
 .contact-form {
   max-width: 620px;
@@ -53,7 +54,7 @@
   box-shadow: 0 22px 55px rgba(90, 50, 120, 0.35);
 }
 
-/* ================= INPUTS & TEXTAREA ================= */
+/* ================= INPUTS ================= */
 
 .contact-form input,
 .contact-form textarea {
@@ -73,27 +74,25 @@
   color: #7a5a8a;
 }
 
-/* Focus state */
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #a37bcf;
   box-shadow: 0 0 0 3px rgba(163, 123, 207, 0.25);
 }
 
-/* Textarea */
 .contact-form textarea {
   height: 140px;
   resize: none;
 }
 
-/* ================= SUBMIT BUTTON ================= */
+/* ================= BUTTON ================= */
 
 .contact-form button {
   padding: 14px;
   border-radius: 14px;
   border: none;
   background: linear-gradient(90deg, #6a4c8c, #a37bcf);
-  color: #ffffff;
+  color: #fff;
   font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
@@ -101,19 +100,17 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-/* Hover */
 .contact-form button:hover:not(:disabled) {
   transform: translateY(-3px);
   box-shadow: 0 14px 32px rgba(90, 50, 120, 0.45);
 }
 
-/* Disabled */
 .contact-form button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-/* ================= STATUS MESSAGE ================= */
+/* ================= STATUS ================= */
 
 .status-message {
   font-size: 1rem;

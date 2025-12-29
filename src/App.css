@@ -1,5 +1,7 @@
+/* ================= GOOGLE FONT ================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -7,46 +9,60 @@
   font-family: 'Poppins', sans-serif;
 }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden; /* 🔥 prevents horizontal scroll */
+/* ================= ROOT THEME ================= */
+:root {
+  --primary: #7d2ae8;
+  --secondary: #e06ee3;
+  --bg: #f7f8fa;
+  --card-bg: #ffffff;
+  --card: #f6f4fb;
+  --text: #0f172a;
+  --subtext: #555;
+  --muted: #81858c;
+  --border: #e5e7eb;
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-body {
-  padding-top: 110px; /* header safe space */
-  padding-left: 50px;
-  padding-right: 50px;
-  color: #fff;
-  transition: all 0.3s ease;
-  touch-action: pan-x pan-y;
-}
-/* ================= DARK THEME ================= */
+/* ================= DARK MODE ================= */
 body.dark {
   --primary: #7d2ae8;
   --secondary: #e06ee3;
   --bg: #0b0f14;
   --card-bg: #111827;
+  --card: #111827;
   --text: #f1f5f9;
+  --subtext: #9ca3af;
   --muted: #9ca3af;
   --border: #1f2937;
 }
 
+/* ================= HTML / BODY ================= */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* prevents horizontal scroll */
+}
 
-/* Tablet */
+body {
+  padding: 110px 50px 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+  touch-action: pan-x pan-y;
+}
+
+/* ================= TABLET ================= */
 @media (max-width: 992px) {
   body {
-    padding-top: 90px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 90px 30px 0;
   }
 }
 
-/* Mobile */
+/* ================= MOBILE ================= */
 @media (max-width: 600px) {
   body {
-    padding-top: 80px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 80px 15px 0;
   }
 
   h2 {
@@ -61,23 +77,4 @@ body.dark {
   p {
     font-size: 0.95rem;
   }
-}
-/* ================= GLOBAL THEME ================= */
-:root {
-  --primary: #7d2ae8;
-  --secondary: #e06ee3;
-  --bg: #f7f8fa;
-  --card-bg: #ffffff;
-  --text: #0f172a;
-  --subtext: #a34bf6;
-  --muted: #81858c;
-  --border: #e5e7eb;
-  --radius: 18px;
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Poppins", sans-serif;
 }
