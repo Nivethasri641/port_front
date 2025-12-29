@@ -29,7 +29,7 @@ function Header() {
       <nav className={`navigation ${menuOpen ? "open" : ""}`}>
         <a href="#home" onClick={handleCloseMenu}>Home</a>
         <a href="#about" onClick={handleCloseMenu}>About</a>
-        <a href="#award" onClick={handleCloseMenu}>Awards & Certifications</a>
+        <a href="#award" onClick={handleCloseMenu}>Awards & Recognition</a>
         <a href="#skill" onClick={handleCloseMenu}>Tools & Skills</a>
         <a href="#project" onClick={handleCloseMenu}>Projects</a>
         <a href="/resume.pdf" download className="btn-resume" onClick={handleCloseMenu}>Download Resume</a>

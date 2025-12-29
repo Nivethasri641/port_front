@@ -26,6 +26,7 @@
     var(--bg);
 }
 
+
 /* ✅ SINGLE GRID WRAPPER (IMPORTANT) */
 .about-wrapper {
   max-width: 1200px;
@@ -241,3 +242,34 @@
     line-height: 1.7;
   }
 }
+/* ===== FLOAT + GLOW EFFECT ===== */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,0.3),
+      0 0 25px rgba(91, 22, 180, 0.35);
+  }
+  50% {
+    transform: translateY(-12px);
+    box-shadow: 
+      0 40px 80px rgba(0,0,0,0.35),
+      0 0 45px rgba(224, 110, 227, 0.55);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,0.3),
+      0 0 25px rgba(91, 22, 180, 0.35);
+  }
+}
+
+.about-image img {
+  width: 360px;
+  border-radius: 24px;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  
+  animation: float 4s ease-in-out infinite;
+}
+
