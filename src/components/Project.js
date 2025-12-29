@@ -34,7 +34,7 @@ import brandbookPDF from "../assets/brand.pdf";
 const fullstackProjects = [
   {
     title: "CRUD Application",
-    description: "Fullstack CRUD application .",
+    description: "Fullstack CRUD application . I developed this during my GUVI Fullstack course.",
     tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
     link: "https://crud-five-zeta.vercel.app/",
     image: crud,
@@ -48,7 +48,7 @@ const fullstackProjects = [
   },
   {
     title: "Expense Tracker",
-    description: "Fullstack expense tracker application using MERN stack.",
+    description: "Fullstack expense tracker application using MERN stack. Track your expenses with your account.",
     tech: ["React", "Node.js", "MongoDB Atlas", "Express", "HTML", "CSS", "JavaScript", "Vercel", "Render", "Replit"],
     link: "https://expensetracker-nine-ruby.vercel.app/",
     image: expense,
@@ -60,7 +60,7 @@ const figmaProjects = [
   {
     title: "Food Micro‑Interaction Animation",
     description:
-      "Designed a food micro‑interaction in Figma using Smart Animate.The animation simulates a food item lifting from the plate and returning smoothly, using detailed control of scale, movement, and shadow dynamics.",
+      "Designed a food micro‑interaction in Figma using Smart Animate.The animation simulates a food item lifting from the plate and returning smoothly.",
     tech: ["Frame setup", "Food edits", "Shadow logic", "Final animation"],
     link: "https://www.figma.com/proto/qbxzTqCKyC6RFGKs8SoNby/Untitled?node-id=0-1&t=GsgU6jixWxa0Kjw0-1",
     image: anim,
