@@ -202,6 +202,6 @@
   .home-buttons {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 24px;
   }
 }
