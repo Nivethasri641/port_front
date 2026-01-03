@@ -17,7 +17,7 @@ function About() {
           <h2>About <span>Me</span></h2>
           <div className="about-text-card"> 
           <p>
-            Hi, I’m <span className="highlight">Nivethasri K</span>, a Computer
+            Hi, I’m <span className="highlight">Nivetha Sri K</span>, a Computer
             Science and Engineering student passionate about building modern,
             user-friendly applications with a strong design focus.
             I specialize in <span className="highlight">UI/UX Design</span>,
@@ -30,8 +30,8 @@ function About() {
           {/* FEATURE CARDS */}
           <div className="about-features">
             <div className="feature-card">
-              <h4>Clean Code</h4>
-              <p>Writing scalable and maintainable code</p>
+              <h4>Full Stack Development (MERN)</h4>
+              <p>Building responsive, scalable web applications using React, Node.js, MongoDB & Express</p>
             </div>
 
             <div className="feature-card">
@@ -40,8 +40,8 @@ function About() {
             </div>
 
             <div className="feature-card">
-              <h4>Problem Solving</h4>
-              <p>Finding smart solutions to complex challenges</p>
+              <h4>Hands-on Project Experience</h4>
+              <p>Completed 15+ projects including full-stack apps and AICTE Idea Lab Wood Router projects</p>
             </div>
 
             <div className="feature-card">
