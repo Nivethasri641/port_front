@@ -1,39 +1,40 @@
+/* ================= HOME SECTION ================= */
 .home {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 120px 8%;
+  overflow: hidden;
   background:
     radial-gradient(circle at 10% 20%, rgba(125,42,232,0.15), transparent 40%),
     radial-gradient(circle at 90% 60%, rgba(46,229,157,0.15), transparent 45%),
     var(--bg);
 }
-/* ===== HOME SPRINKLE EFFECT ===== */
+
+/* ===== SPRINKLE EFFECT ===== */
 .home::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(2.5px 1.5px at 20% 30%, rgba(238, 238, 66, 0.35), transparent),
+    radial-gradient(2.5px 1.5px at 20% 30%, rgba(238,238,66,0.35), transparent),
     radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.25), transparent),
     radial-gradient(1.2px 1.2px at 40% 80%, rgba(255,255,255,0.2), transparent),
     radial-gradient(1.5px 1.5px at 90% 60%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(2px 1px at 10% 90%, rgba(13, 60, 107, 0.25), transparent);
+    radial-gradient(2px 1px at 10% 90%, rgba(13,60,107,0.25), transparent);
   background-size: 260px 260px;
   animation: sprinkleMove 12s linear infinite;
   pointer-events: none;
-  z-index: 0;scroll-snap-stop: CV;
-}
-@keyframes sprinkleMove {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-200px);
-  }
+  z-index: 0;
 }
 
-/* ===== LAYOUT ===== */
+@keyframes sprinkleMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}
+
+/* ================= LAYOUT ================= */
 .home-container {
   position: relative;
   z-index: 1;
@@ -43,7 +44,7 @@
   gap: 70px;
 }
 
-/* ===== TEXT ===== */
+/* ================= TEXT ================= */
 .home-text h4 {
   font-size: 1.1rem;
   color: var(--subtext);
@@ -88,7 +89,7 @@
   font-size: 1rem;
 }
 
-/* ===== BUTTONS ===== */
+/* ================= BUTTONS ================= */
 .home-buttons {
   margin-top: 30px;
   display: flex;
@@ -100,7 +101,7 @@
   border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn.primary {
@@ -124,7 +125,7 @@
   color: #fff;
 }
 
-/* ===== IMAGE ===== */
+/* ================= IMAGE ================= */
 .home-image {
   display: flex;
   justify-content: center;
@@ -132,105 +133,75 @@
 
 .home-image img {
   width: 360px;
+  max-width: 100%;
   border-radius: 24px;
   padding: 10px;
-  background:
-    linear-gradient(135deg, var(--secondary), var(--primary));
-  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  animation: float 4s ease-in-out infinite;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .home {
-    padding: 100px 6%;
-  }
-
-  .home-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    text-align: center;
-    gap: 40px;
-  }
-
-  /* Image comes first */
-  .home-image {
-    order: 1;
-  }
-
-  /* Text comes second */
-  .home-text {
-    order: 2;
-  }
-
-  .home-image img {
-    width: 260px;
-    margin: 0 auto;
-  }
-
-  .home-buttons {
-    justify-content: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-}
-.btn-primary {
-  padding: 12px 26px;
-  border-radius: 8px;
-  color: #fff;
-  background: linear-gradient(135deg, #7d2ae8, #e06ee3);
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(125, 42, 232, 0.4);
-}
-
-.btn-outline {
-  padding: 12px 26px;
-  border-radius: 8px;
-  color: #e06ee3;
-  border: 2px solid #e06ee3;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.btn-outline:hover {
-  background: #e06ee3;
-  color: #fff;
-}
-/* ===== FLOAT + GLOW EFFECT ===== */
+/* FLOAT + GLOW */
 @keyframes float {
   0% {
     transform: translateY(0);
     box-shadow:
       0 30px 60px rgba(0,0,0,0.3),
-      0 0 25px rgba(91, 22, 180, 0.35);
+      0 0 25px rgba(91,22,180,0.35);
   }
   50% {
     transform: translateY(-12px);
     box-shadow:
       0 40px 80px rgba(0,0,0,0.35),
-      0 0 45px rgba(224, 110, 227, 0.55);
+      0 0 45px rgba(224,110,227,0.55);
   }
   100% {
     transform: translateY(0);
     box-shadow:
       0 30px 60px rgba(0,0,0,0.3),
-      0 0 25px rgba(91, 22, 180, 0.35);
+      0 0 25px rgba(91,22,180,0.35);
   }
 }
 
-.home-image img {
-  width: 360px;
-  border-radius: 24px;
-  padding: 10px;
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
- 
-  animation: float 4s ease-in-out infinite;
+/* ================= MOBILE GRID FIX ================= */
+@media (max-width: 768px) {
+  .home {
+    padding: 90px 5%;
+  }
+
+  .home-container {
+    grid-template-columns: 1fr;   /* SINGLE COLUMN */
+    gap: 35px;
+    text-align: center;
+  }
+
+  .home-image {
+    order: 1;
+  }
+
+  .home-text {
+    order: 2;
+  }
+
+  .home-image img {
+    width: 240px;
+  }
+
+  .home-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .home-text p {
+    font-size: 0.95rem;
+    margin: 0 auto;
+  }
+
+  .home-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
 }
