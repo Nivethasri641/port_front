@@ -1,22 +1,3 @@
-EEEEEYD67E                                 QWb
-  /* ===== ROOT THEME ===== */
-:root {
-  --primary: #7d2ae8;
-  --secondary: #2ee59d;
-  --text: #1f1f1f;
-  --subtext: #555;
-  --bg: #ffffff;
-  --card: #f6f7fb;
-}
-
-.dark {
-  --bg: #0b0f14;
-  --card: #111827;
-  --text: #f1f5f9;
-  --subtext: #9ca3af;
-}
-
-/* ===== HOME SECTION ===== */
 .home {
   min-height: 100vh;
   display: flex;
@@ -51,7 +32,6 @@ EEEEEYD67E                                 QWb
     transform: translateY(-200px);
   }
 }
-
 
 /* ===== LAYOUT ===== */
 .home-container {
@@ -228,19 +208,19 @@ EEEEEYD67E                                 QWb
 @keyframes float {
   0% {
     transform: translateY(0);
-    box-shadow: 
+    box-shadow:
       0 30px 60px rgba(0,0,0,0.3),
       0 0 25px rgba(91, 22, 180, 0.35);
   }
   50% {
     transform: translateY(-12px);
-    box-shadow: 
+    box-shadow:
       0 40px 80px rgba(0,0,0,0.35),
       0 0 45px rgba(224, 110, 227, 0.55);
   }
   100% {
     transform: translateY(0);
-    box-shadow: 
+    box-shadow:
       0 30px 60px rgba(0,0,0,0.3),
       0 0 25px rgba(91, 22, 180, 0.35);
   }
@@ -251,7 +231,6 @@ EEEEEYD67E                                 QWb
   border-radius: 24px;
   padding: 10px;
   background: linear-gradient(135deg, var(--secondary), var(--primary));
-  
+ 
   animation: float 4s ease-in-out infinite;
 }
-
