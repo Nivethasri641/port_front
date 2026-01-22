@@ -11,7 +11,7 @@ const Home = () => {
         <div className="home-text">
           <h4>Hi, I'm</h4>
           <h1>
-            Nivetha Sri <span>Kannan</span> 👋
+            Nivetha Sri <span>Kannan</span>
           </h1>
           <h3>Full Stack Developer</h3>
 
