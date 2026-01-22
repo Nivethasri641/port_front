@@ -11,6 +11,7 @@ import Project from "./components/Project";
 import Contact from "./components/Contact";
 import Social from "./components/Social";
 import Footer from "./components/Footer";
+import Games from "./components/games";
 import ScrollProgress from "./components/scroll";
 import ThemeToggle from "./components/ThemeToggle";
 
@@ -39,7 +40,8 @@ function App() {
       <About />
       <Award />
       <Skill />
-      <Project />  
+      <Project />
+      <Games />  
       <Contact />
       <Social />
       <Footer />
